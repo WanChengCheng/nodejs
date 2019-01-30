@@ -7,6 +7,9 @@
   "author": "<chengchengw chengcheng.st@gmail.com>",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "lerna": "^3.10.7"
   }
