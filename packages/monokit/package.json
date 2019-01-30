@@ -20,9 +20,7 @@
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
-  "dependencies": {
-    "@chengchengw/eslint-config": "^0.0.3-alpha.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^5.12.1"
   }

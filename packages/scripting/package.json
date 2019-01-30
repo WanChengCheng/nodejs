@@ -1,0 +1,8 @@
+{
+  "name": "@chengchengw/scripting",
+  "version": "1.0.0",
+  "description": "node scripting.",
+  "main": "index.js",
+  "author": "chengchengw <chengcheng.st@gmail.com>",
+  "license": "MIT"
+}
