@@ -1,0 +1,12 @@
+
+# node dependencies
+node_modules/
+
+# Build directory
+build/
+
+# Local env
+.env
+
+# error logs
+yarn-error.log

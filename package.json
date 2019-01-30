@@ -1,0 +1,13 @@
+{
+  "name": "nodejs",
+  "version": "0.0.1",
+  "description": "node work all in one.",
+  "main": "index.js",
+  "repository": "https://github.com/wanchengcheng/nodejs",
+  "author": "<chengchengw chengcheng.st@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.10.7"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@chengchengw/create-node-service",
+  "version": "0.0.2-alpha.0",
+  "description": "quickly launch a dockerized modern node service.",
+  "main": "index.js",
+  "author": "chengchengw <chengcheng.st@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
