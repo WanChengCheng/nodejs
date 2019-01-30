@@ -4,6 +4,11 @@
  * Author: ChegCheng Wan (chengcheng.st@gmail.com)
  */
 
+// more details please check:
+//! https://eslint.org/docs/user-guide/configuring
 module.exports = {
-  extends: "airbnb-base"
+  parser: "babel-eslint",
+  extends: "airbnb-base",
+  rules: {},
+  globals: {}
 };
