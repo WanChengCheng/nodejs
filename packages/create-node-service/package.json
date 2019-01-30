@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/create-node-service",
-  "version": "0.0.3-alpha.0",
+  "version": "0.0.4-alpha.0",
   "description": "quickly launch a dockerized modern node service.",
   "main": "index.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",

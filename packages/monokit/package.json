@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/monokit",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "description": "mono repo scripting works.",
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/wanchengcheng/nodejs/tree/master/packages/monokit",
@@ -23,7 +23,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
   "devDependencies": {
     "eslint": "^5.12.1"
   }

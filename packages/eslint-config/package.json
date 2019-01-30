@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/eslint-config",
-  "version": "0.0.3-alpha.0",
+  "version": "0.0.4-alpha.0",
   "description": "eslint config common.",
   "main": "base.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
