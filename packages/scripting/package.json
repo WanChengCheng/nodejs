@@ -2,7 +2,7 @@
   "name": "@chengchengw/scripting",
   "version": "1.0.2-alpha.0",
   "description": "node scripting.",
-  "main": "index.js",
+  "bin": "./src/ns.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
   "publishConfig": {
     "access": "public"
