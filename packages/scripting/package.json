@@ -4,5 +4,8 @@
   "description": "node scripting.",
   "main": "index.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT"
 }
