@@ -7,7 +7,7 @@
 
 const program = require('commander');
 const { exec } = require('./common/util');
-const { init } = require('./ns-init-project');
+const { init } = require('./scripting-init-project');
 
 const logger = console;
 
