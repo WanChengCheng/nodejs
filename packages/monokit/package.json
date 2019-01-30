@@ -1,0 +1,29 @@
+{
+  "name": "@chengchengw/monokit",
+  "version": "0.0.1",
+  "description": "mono repo scripting works.",
+  "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
+  "homepage": "https://github.com/wanchengcheng/nodejs/tree/master/packages/monokit",
+  "license": "ISC",
+  "main": "",
+  "directories": {},
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WanChengCheng/nodejs.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/WanChengCheng/nodejs/issues"
+  },
+  "dependencies": {
+    "@chengchengw/eslint-config": "^0.0.3-alpha.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1"
+  }
+}
