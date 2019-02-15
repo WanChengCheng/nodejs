@@ -2,7 +2,7 @@
 /*
  * File: ns-init-project.js
  * File Created: Wednesday, 30th January 2019 5:44:01 pm
- * Author: ChegCheng Wan (chengcheng.st@gmail.com)
+ * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
 
 const program = require('commander');

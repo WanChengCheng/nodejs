@@ -1,9 +1,11 @@
 /*
  * File: babel.config.js
  * File Created: Wednesday, 30th January 2019 6:50:49 pm
- * Author: ChegCheng Wan (chengcheng.st@gmail.com)
+ * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
 
+// more details please check:
+// ! 
 const presets = [
   [
     '@babel/env',

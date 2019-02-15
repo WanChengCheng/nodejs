@@ -2,7 +2,7 @@
 /*
  * File: ns.js
  * File Created: Wednesday, 30th January 2019 5:08:56 pm
- * Author: ChegCheng Wan (chengcheng.st@gmail.com)
+ * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
 
 const program = require('commander');
