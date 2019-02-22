@@ -1,16 +1,15 @@
 {
   "name": "@chengchengw/eslint-config",
-  "version": "0.0.5-alpha.0",
+  "version": "1.0.0",
   "description": "eslint config common.",
   "main": "base.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
   "license": "MIT",
-  "devDependencies": {},
   "peerDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.12.1",
-    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.0",
     "eslint-plugin-react": "^7.12.4"
