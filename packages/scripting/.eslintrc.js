@@ -5,5 +5,5 @@
  */
 
 module.exports = {
-  extends: "@chengchengw/eslint-config"
+  extends: '@chengchengw/eslint-config',
 };
