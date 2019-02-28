@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/monokit",
-  "version": "0.0.3-alpha.0",
+  "version": "0.0.4-alpha.0",
   "description": "mono repo scripting works.",
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/wanchengcheng/nodejs/tree/master/packages/monokit",
