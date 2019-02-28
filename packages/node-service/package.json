@@ -1,0 +1,29 @@
+{
+  "name": "@chengchengw/node-service",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
+  "homepage": "https://github.com/WanChengCheng/nodejs#readme",
+  "license": "ISC",
+  "main": "lib/node-services.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WanChengCheng/nodejs.git"
+  },
+  "scripts": {
+    "dev": "DOCKER_CMD=\"dumb-init npm run start\" docker-compose -f docker/docker-compose-dev.yml up"
+  },
+  "bugs": {
+    "url": "https://github.com/WanChengCheng/nodejs/issues"
+  }
+}

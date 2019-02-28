@@ -1,0 +1,41 @@
+{
+  "name": "backing-service-mongodb",
+  "version": "1.0.0",
+  "description": "Utils to work with mongodb as a backing service.",
+  "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
+  "homepage": "https://github.com/WanChengCheng/nodejs#readme",
+  "license": "ISC",
+  "main": "lib/main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WanChengCheng/nodejs.git"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "if [ -d lib ]; then rm -r lib/*; fi; npm run build:source",
+    "build:source": "./node_modules/.bin/babel src --out-dir lib --copy-files",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/WanChengCheng/nodejs/issues"
+  },
+  "dependencies": {
+    "mongoose": "^5.4.16"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@chengchengw/eslint-config": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}

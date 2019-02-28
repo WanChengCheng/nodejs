@@ -3,6 +3,8 @@
 node_modules/
 
 # Build directory
+dist/
+lib/
 build/
 
 # Local env
@@ -10,3 +12,5 @@ build/
 
 # error logs
 yarn-error.log
+
+
