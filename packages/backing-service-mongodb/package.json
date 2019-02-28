@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/backing-service-mongodb",
-  "version": "0.0.4-alpha.0",
+  "version": "1.0.0",
   "description": "Utils to work with mongodb as a backing service.",
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
