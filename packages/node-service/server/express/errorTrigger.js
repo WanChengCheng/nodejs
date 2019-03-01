@@ -5,8 +5,8 @@
  */
 
 // * trigger an defined error
-const errorTrigger = (error, details = {}) => {
-  const { code, message } = error;
+export const errorTrigger = (error, details = {}) => {
+  const { code = -1, message } = error;
   throw Object.assign(new Error(message), {
     code,
     details,

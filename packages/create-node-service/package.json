@@ -6,7 +6,11 @@
   "author": "chengchengw <chengcheng.st@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.19.0"
+    "fs-extra": "^7.0.1",
+    "yargs": "^13.2.1"
+  },
+  "devDependencies": {
+    "@chengchengw/eslint-config": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"

@@ -4,7 +4,7 @@
  * Author: ChegCheng Wan (chengcheng.st@gmail.com)
  */
 
-const successResponse = (res, details = {}) => {
+export const successResponse = (res, details = {}) => {
   res.json({
     status: 0,
     ...details,
