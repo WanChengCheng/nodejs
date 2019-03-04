@@ -3,10 +3,13 @@
   "version": "0.0.5-alpha.0",
   "description": "quickly launch a dockerized modern node service.",
   "main": "index.js",
+  "bin": "./commands/create-node-service.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "fs-extra": "^7.0.1",
+    "randomatic": "^3.1.1",
+    "write-pkg": "^3.2.0",
     "yargs": "^13.2.1"
   },
   "devDependencies": {
