@@ -127,4 +127,24 @@ export const createService = ({
   };
 };
 
+export const EVENT_SERVICES_CONNECTED = 'ServicesConnected';
+
+export const EVENT_SERVER_READY = 'ServerStarted';
+
+export const bootstrapServer = ({
+  server, logger, port, isTestEnv, noListen, connectServices,
+}) => {
+  Promise.all(connectServices()).then(() => {
+    server.emit(EVENT_SERVICES_CONNECTED);
+    logger.info('All services connected.');
+    if (!isTestEnv && !noListen) {
+      server.listen(port, () => {
+        logger.info(`Server started on port ${port} in ${server.get('env')} mode`);
+        server.emit(EVENT_SERVER_READY);
+      });
+    } else {
+      logger.info('Server started but not listening');
+    }
+  });
+};
 export default createService;
