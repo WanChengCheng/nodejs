@@ -1,9 +1,8 @@
 /*
- * File: main.js
- * File Created: Thursday, 28th February 2019 5:01:33 pm
+ * File: redis.js
+ * File Created: Monday, 4th March 2019 2:17:16 pm
  * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
-
 import connectRedis from '@chengchengw/backing-service-redis';
 
 const configs = (() => {
