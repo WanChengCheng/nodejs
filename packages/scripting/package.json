@@ -10,7 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.19.0",
-    "fs-extra": "^7.0.1"
+    "fs-extra": "^7.0.1",
+    "read-pkg": "^4.0.1",
+    "write-pkg": "^3.2.0"
   },
   "devDependencies": {
     "@chengchengw/eslint-config": "^1.0.7",
