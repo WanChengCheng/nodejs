@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/eslint-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "eslint config common.",
   "main": "base.js",
   "bin": "./commands/index.js",
