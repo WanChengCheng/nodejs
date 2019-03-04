@@ -3,21 +3,7 @@
  * File Created: Friday, 9th November 2018 12:01:05 am
  * Author: ChegCheng Wan (chengcheng.st@gmail.com)
  */
-
-export const ServerError = {
-  code: 1,
-  message: 'unexpected server error',
-};
-
-export const InvalidRequestError = {
-  code: 2,
-  message: 'request validation error',
-};
-
-export const WIPError = {
-  code: 10,
-  message: 'endpoint work in progress',
-};
+import { InvalidRequestError, ServerError } from './errors';
 
 const buildErrorResponse = (info) => {
   const { code, message, details = {} } = info;
@@ -27,9 +13,8 @@ const buildErrorResponse = (info) => {
     details,
   };
 };
-
 // handle defined/undefined errors and express-validator errors
-export const errorResponse = (req, res) => (err, message = 'application error') => {
+const errorResponse = (req, res) => (err, message = 'application error') => {
   // log error
   const { log = console } = req;
   log.error({ message, err });

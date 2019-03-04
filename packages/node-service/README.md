@@ -1,11 +1,9 @@
-# `@chengchengw/node-services`
+# `@chengchengw/node-service`
 
 > TODO: description
 
 ## Usage
 
 ```
-const nodeServices = require('@chengchengw/node-services');
-
 // TODO: DEMONSTRATE API
 ```

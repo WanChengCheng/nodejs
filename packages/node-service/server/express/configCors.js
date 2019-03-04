@@ -5,7 +5,7 @@
  */
 
 /* eslint max-len: 0 */
-export const configCors = ({
+const configCors = ({
   isProductionEnv = () => process.env.NODE_ENV === 'production',
   // Access-Control-Allow-Methods
   // The Access-Control-Allow-Methods header specifies the method or methods allowed when accessing the resource.

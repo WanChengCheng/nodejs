@@ -5,7 +5,7 @@
  */
 import Joi from 'joi';
 import errorTrigger from './errorTrigger';
-import { InvalidRequestError } from './errorResponse';
+import { InvalidRequestError } from './errors';
 
 /* eslint max-len: 0 */
 
