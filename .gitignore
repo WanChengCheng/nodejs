@@ -13,4 +13,7 @@ build/
 # error logs
 yarn-error.log
 
+# lerna
+lerna-debug.log
+
 
