@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/scripting",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "node scripting.",
   "bin": "./src/scripting.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
@@ -12,7 +12,7 @@
     "commander": "^2.19.0"
   },
   "devDependencies": {
-    "@chengchengw/eslint-config": "^1.0.1",
+    "@chengchengw/eslint-config": "^1.0.2",
     "eslint": "^5.12.1"
   }
 }

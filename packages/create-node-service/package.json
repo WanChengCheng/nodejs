@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/create-node-service",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "quickly launch a dockerized modern node service.",
   "main": "index.js",
   "bin": "./commands/create-node-service.js",
@@ -13,7 +13,7 @@
     "yargs": "^13.2.1"
   },
   "devDependencies": {
-    "@chengchengw/eslint-config": "^1.0.1"
+    "@chengchengw/eslint-config": "^1.0.2"
   },
   "publishConfig": {
     "access": "public"
