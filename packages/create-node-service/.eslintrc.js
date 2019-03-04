@@ -15,10 +15,7 @@ module.exports = {
   },
   extends: 'airbnb',
   rules: {
-    'import/no-extraneous-dependencies': [
-      'error',
-      { devDependencies: ['**/*.test.js', '**/*.spec.js', '**/*.e2e.js'] },
-    ],
+    'import/no-extraneous-dependencies': 0,
 
     // enable additional rules
   },

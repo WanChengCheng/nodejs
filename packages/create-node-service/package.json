@@ -8,11 +8,14 @@
   "license": "MIT",
   "dependencies": {
     "fs-extra": "^7.0.1",
+    "handlebars": "^4.1.0",
     "randomatic": "^3.1.1",
+    "read-pkg": "^4.0.1",
     "write-pkg": "^3.2.0",
     "yargs": "^13.2.1"
   },
   "devDependencies": {
+    "@chengchengw/node-service": "^0.0.6",
     "@chengchengw/eslint-config": "^1.0.5"
   },
   "publishConfig": {

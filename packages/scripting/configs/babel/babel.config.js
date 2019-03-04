@@ -1,15 +1,14 @@
 /*
  * File: babel.config.js
- * File Created: Wednesday, 30th January 2019 6:50:49 pm
+ * File Created: Thursday, 28th February 2019 6:00:57 pm
  * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
 
-// more details please check:
-// ! 
 const presets = [
   [
-    '@babel/env',
+    '@babel/preset-env',
     {
+      // https://babeljs.io/docs/en/babel-preset-env
       targets: {
         // would be the same as process.versions.node
         node: 'current',
@@ -18,6 +17,6 @@ const presets = [
   ],
 ];
 
-const plugins = ['@babel/plugin-proposal-class-properties'];
+const plugins = [];
 
 module.exports = { presets, plugins };

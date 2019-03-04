@@ -10,8 +10,12 @@ services:
       - "${DEV_DOCKER_SERVICE_PORT-8000}:80"
       - "${DEV_DOCKER_DEBUG_PORT-8100}:${DEV_DOCKER_DEBUG_PORT-8100}"
     restart: ${DEV_DOCKER_AUTO_RESTART}
-    # command: ${DOCKER_CMD}
+{{#use_mysql}}
     command: "bash ./wait-for-it.sh mysql:3306 -t 0 -s -- ${DOCKER_CMD}"
+{{/use_mysql}}
+{{^use_mysql}}
+    command: ${DOCKER_CMD}
+{{/use_mysql}}
     environment:
       - NO_LISTEN=${NO_LISTEN-no}
       - NODE_ENV=${NODE_ENV-development}
@@ -31,11 +35,21 @@ services:
       - "redis"
       - "mongoimport"
       - "mysql"
+{{#use_redis}}
   redis:
     image: "redis:latest"
     container_name: "${SERVICE_NAME}-redis"
     ports:
       - "${DEV_DOCKER_REDIS_PORT-6379}:6379"
+{{/use_redis}}
+{{^use_redis}}
+  # redis:
+  #   image: "redis:latest"
+  #   container_name: "${SERVICE_NAME}-redis"
+  #   ports:
+  #     - "${DEV_DOCKER_REDIS_PORT-6379}:6379"
+{{/use_redis}}
+{{#use_mongo}}
   mongo:
     image: "mongo"
     container_name: "${SERVICE_NAME}-mongo"
@@ -49,6 +63,23 @@ services:
     container_name: "${SERVICE_NAME}-mongoimport"
     depends_on:
       - "mongo"
+{{/use_mongo}}
+{{^use_mongo}}
+  # mongo:
+  #   image: "mongo"
+  #   container_name: "${SERVICE_NAME}-mongo"
+  #   ports:
+  #     - "${DEV_DOCKER_MONGO_PORT-27017}:27017"
+  # mongoimport:
+  #   build:
+  #     context: ../
+  #     dockerfile: docker/Dockerfile-mongoimport
+  #   image: "${SERVICE_NAME}-mongoimport:latest"
+  #   container_name: "${SERVICE_NAME}-mongoimport"
+  #   depends_on:
+  #     - "mongo"
+{{/use_mongo}}
+{{#use_mysql}}
   mysql:
     image: "mysql:5.6"
     container_name: "${SERVICE_NAME}-mysql"
@@ -60,3 +91,18 @@ services:
     volumes:
       - ./mysql.cnf:/etc/mysql/conf.d/encoding.cnf
       - ../import/mysql:/docker-entrypoint-initdb.d
+{{/use_mysql}}
+{{^use_mysql}}
+  # mysql:
+  #   image: "mysql:5.6"
+  #   container_name: "${SERVICE_NAME}-mysql"
+  #   ports:
+  #     - "${DEV_DOCKER_MYSQL_PORT-3306}:3306"
+  #   environment:
+  #     - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+  #     - MYSQL_DATABASE=default
+  #   volumes:
+  #     - ./mysql.cnf:/etc/mysql/conf.d/encoding.cnf
+  #     - ../import/mysql:/docker-entrypoint-initdb.d
+{{/use_mysql}}
+

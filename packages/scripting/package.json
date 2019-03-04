@@ -1,18 +1,19 @@
 {
   "name": "@chengchengw/scripting",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "node scripting.",
-  "bin": "./src/scripting.js",
+  "bin": "./src/commands.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "fs-extra": "^7.0.1"
   },
   "devDependencies": {
-    "@chengchengw/eslint-config": "^1.0.5",
-    "eslint": "^5.12.1"
+    "@chengchengw/eslint-config": "^1.0.7",
+    "ava": "^1.2.1"
   }
 }

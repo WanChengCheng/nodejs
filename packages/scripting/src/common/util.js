@@ -7,5 +7,3 @@
 const util = require('util');
 
 exports.exec = util.promisify(require('child_process').exec);
-
-exports.file = util.promisify(require('fs'))

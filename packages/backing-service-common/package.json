@@ -7,8 +7,7 @@
   "license": "ISC",
   "main": "lib/backing-service-common.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"
@@ -22,5 +21,8 @@
   },
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
+  },
+  "dependencies": {
+    "@chengchengw/eslint-config": "^1.0.7"
   }
 }
