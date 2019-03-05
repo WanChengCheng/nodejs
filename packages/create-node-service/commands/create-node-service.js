@@ -102,7 +102,7 @@ const setupDockerEnv = async () => {
   const pkg = await readPkg({});
   const serviceName = name || pkg.name;
   const serviceVersion = version || '1.0.0';
-  logger.info('Setup docker envirnment, copy docker configs.');
+  logger.info('Setup docker envirnment, copy docker configs ...');
   await fs.ensureDir('./docker');
   await fs.ensureDir('./configs');
   if (mongo) {
@@ -146,7 +146,7 @@ const setupDockerEnv = async () => {
   });
   fs.copyFileSync(path.join(__dirname, '../boilerplates/docker/Dockerfile'), './Dockerfile');
   if (env) {
-    logger.info('Write env files to project root directory.');
+    logger.info('Write env files to project root directory ...');
     const envSample = await read(
       path.join(__dirname, '../boilerplates/configs/sample.env'),
       'utf8',
@@ -187,8 +187,9 @@ const addScriptsToPKGJson = async () => {
         'NODE_ENV=test DOCKER_CMD="dumb-init npm run test" docker-compose -f docker/docker-compose-dev.yml up --abort-on-container-exit',
       'dev:debug':
         'npm run build && DOCKER_CMD="dumb-init npm run debug" docker-compose -f docker/docker-compose-dev.yml up',
-      'dev:empty': 'node scripts/docker-clear-storage',
-      'dev:rebuild': 'node scripts/docker-rebuild-application',
+      'dev:empty': `npx @chengchengw/node-service --n ${pkg.name}`,
+      'dev:rebuild': `npx @chengchengw/node-service rebuild-app ${pkg.name}`,
+      stop: 'docker stop $(docker ps -aq)',
       lint: 'eslint server/**',
       debug: 'npm run build && node --inspect-brk=0.0.0.0:8100 server.js',
       test: 'npm run build && ./node_modules/.bin/ava --verbose',
@@ -215,7 +216,7 @@ const setupLintBuildTestTools = async () => {
   await exec('npx @chengchengw/scripting setup -gbtl');
   const gitExist = await util.promisify(fs.pathExists)('./.git');
   if (!gitExist) {
-    logger.info('git init ...');
+    logger.info('Init git repositoy: git init ...');
     await exec('git init');
   }
   await addScriptsToPKGJson();
