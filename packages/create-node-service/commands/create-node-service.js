@@ -22,7 +22,7 @@ const exec = util.promisify(require('child_process').exec);
 const logger = console;
 
 const args = yargs
-  .command('init', 'init project directoy add configure files', {
+  .command('setup', 'setup project directoy add configure files', {
     scripts: {
       describe: 'add npm scripts',
       default: true,
@@ -207,12 +207,12 @@ const setupLintBuildTestTools = async () => {
   }
 };
 
-const init = async () => {
+const setup = async () => {
   await setupDockerEnv();
   await setupLintBuildTestTools();
   await addScriptsToPKGJson();
 };
 
-if (command === 'init') {
-  init();
+if (command === 'setup') {
+  setup();
 }
