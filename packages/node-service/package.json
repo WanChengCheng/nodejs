@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/node-service",
-  "version": "0.0.8-alpha.0",
+  "version": "0.0.8",
   "description": "Node service utils with express",
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
@@ -28,6 +28,10 @@
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "ava": "^1.2.1",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.4",
@@ -41,19 +45,15 @@
     "helmet": "^3.15.1",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.0",
-    "pino": "^5.11.1",
-    "response-time": "^2.3.2",
-    "uuid": "^3.3.2",
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "ava": "^1.2.1",
     "nodemon": "^1.18.10",
+    "pino": "^5.11.1",
     "pino-pretty": "^2.5.0",
+    "response-time": "^2.3.2",
     "supertest": "^3.4.2",
+    "uuid": "^3.3.2",
     "yargs": "^13.2.1"
   },
   "devDependencies": {
-    "@chengchengw/eslint-config": "^1.0.5"
+    "@chengchengw/eslint-config": "^1.0.9"
   }
 }

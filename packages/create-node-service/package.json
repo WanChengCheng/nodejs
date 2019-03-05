@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/create-node-service",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "quickly launch a dockerized modern node service.",
   "main": "index.js",
   "bin": "./commands/create-node-service.js",
@@ -17,7 +17,7 @@
   "devDependencies": {
     "@chengchengw/backing-service-common": "^0.0.5",
     "@chengchengw/backing-service-mongodb": "^0.0.8",
-    "@chengchengw/eslint-config": "^1.0.5",
+    "@chengchengw/eslint-config": "^1.0.9",
     "@chengchengw/node-service": "^0.0.6"
   },
   "engines": {
