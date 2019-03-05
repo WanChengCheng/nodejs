@@ -1,8 +1,11 @@
 {
   "name": "backing-service-common",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.3",
   "description": "> TODO: description",
-  "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
+  "author": {
+    "name": "Wan Cheng Cheng",
+    "email": "chengcheng.st@gmail.com"
+  },
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
   "license": "ISC",
   "main": "lib/backing-service-common.js",
@@ -17,12 +20,23 @@
     "url": "git+https://github.com/WanChengCheng/nodejs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "prepublish": "npm run build",
+    "test": "npm run build && ./node_modules/.bin/ava --verbose",
+    "build": "./node_modules/.bin/babel src --out-dir lib --copy-files --source-maps",
+    "test:watch": "./node_modules/.bin/ava --verbose --watch"
   },
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
   "dependencies": {
     "@chengchengw/eslint-config": "^1.0.7"
-  }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "ava": "^1.2.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "backing-service-common@0.0.2-alpha.0"
 }
