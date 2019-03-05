@@ -15,8 +15,13 @@
     "yargs": "^13.2.1"
   },
   "devDependencies": {
+    "@chengchengw/backing-service-common": "^0.0.5",
+    "@chengchengw/backing-service-mongodb": "^0.0.8",
     "@chengchengw/eslint-config": "^1.0.5",
     "@chengchengw/node-service": "^0.0.6"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   },
   "publishConfig": {
     "access": "public"

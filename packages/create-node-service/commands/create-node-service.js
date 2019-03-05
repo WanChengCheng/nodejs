@@ -55,6 +55,10 @@ const args = yargs
       describe: 'add oss related configs & boilerplates',
       default: true,
     },
+    tools: {
+      describe: 'add build, lint test tools',
+      default: true,
+    },
     env: {
       alias: 'e',
       default: true,
@@ -62,7 +66,6 @@ const args = yargs
     },
     version: {
       alias: 'v',
-      default: '1.0.0',
       describe: 'version of the api',
     },
     port: {
@@ -77,6 +80,11 @@ const args = yargs
     secret: {
       alias: 's',
       describe: 'generate secret for jwt signer',
+    },
+    sample: {
+      alias: 'c',
+      default: true,
+      describe: 'generate sample code',
     },
   })
   .help().argv;
@@ -93,7 +101,8 @@ const setupDockerEnv = async () => {
   }
   const pkg = await readPkg({});
   const serviceName = name || pkg.name;
-  logger.info('Setup docker envirnment, opy docker configs.');
+  const serviceVersion = version || '1.0.0';
+  logger.info('Setup docker envirnment, copy docker configs.');
   await fs.ensureDir('./docker');
   await fs.ensureDir('./configs');
   if (mongo) {
@@ -135,9 +144,9 @@ const setupDockerEnv = async () => {
   copyFiles.forEach(([from, to]) => {
     fs.copyFileSync(path.join(__dirname, from), to);
   });
-  fs.copyFileSync(path.join(__dirname, '../docker/Dockerfile'), './Dockerfile');
+  fs.copyFileSync(path.join(__dirname, '../boilerplates/docker/Dockerfile'), './Dockerfile');
   if (env) {
-    logger.info('Write env files to project root directory');
+    logger.info('Write env files to project root directory.');
     const envSample = await read(
       path.join(__dirname, '../boilerplates/configs/sample.env'),
       'utf8',
@@ -150,10 +159,10 @@ const setupDockerEnv = async () => {
         use_redis: redis,
         use_oss: oss,
         use_mysql: mysql,
-        version,
+        version: serviceVersion,
         port,
         name: serviceName,
-        secret: secret || randomize('Aa0', 10),
+        secret: secret || randomize('Aa0', 20),
       }),
     );
   }
@@ -198,19 +207,44 @@ const addScriptsToPKGJson = async () => {
 };
 
 const setupLintBuildTestTools = async () => {
+  const { tools } = args;
+  if (!tools) {
+    return null;
+  }
   logger.info('Config with @chengchengw/scripting setup -gbtl ...');
   await exec('npx @chengchengw/scripting setup -gbtl');
   const gitExist = await util.promisify(fs.pathExists)('./.git');
   if (!gitExist) {
-    logger.info('Init git ');
+    logger.info('git init ...');
     await exec('git init');
   }
+  await addScriptsToPKGJson();
+  return true;
+};
+
+const addSampleCode = async () => {
+  const { sample } = args;
+  if (!sample) {
+    return null;
+  }
+  logger.info('Add sample code .');
+  await fs.ensureDir('./server/backing-services');
+  const copyFiles = [
+    ['../boilerplates/server/backing-services/mongo.js', './server/backing-services/mongo.js'],
+    ['../boilerplates/server/backing-services/redis.js', './server/backing-services/redis.js'],
+    ['../boilerplates/server/index.js', './server/index.js'],
+    ['../boilerplates/server.js', './server.js'],
+  ];
+  copyFiles.forEach(([from, to]) => {
+    fs.copyFileSync(path.join(__dirname, from), to);
+  });
+  return true;
 };
 
 const setup = async () => {
   await setupDockerEnv();
   await setupLintBuildTestTools();
-  await addScriptsToPKGJson();
+  await addSampleCode();
 };
 
 if (command === 'setup') {

@@ -1,3 +1,6 @@
 
 # Build directory
 lib/
+
+# env
+.env
