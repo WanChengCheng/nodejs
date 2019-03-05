@@ -12,7 +12,7 @@ const connectMongo = ({
   devMongoPort = '27017',
 } = {}) => ({
   nodes = [], replset, user, pass, dbname: customDbname,
-}) => {
+}) => new Promise((resolve, reject) => {
   const isProduction = isProductionEnv();
   const dbname = (() => {
     if (customDbname) return customDbname;
@@ -30,8 +30,8 @@ const connectMongo = ({
     }
     return res;
   }, []);
-  // ! set default values for development
-  // ! check backing-service-common/configs/docker-compose-dev.yml for the values
+    // ! set default values for development
+    // ! check backing-service-common/configs/docker-compose-dev.yml for the values
   if (!servers.length && !isProduction) {
     servers.push(`${devMongoHost}:${devMongoPort}`);
   }
@@ -49,21 +49,28 @@ const connectMongo = ({
     // How long the MongoDB driver will wait before failing its initial connection attempt.
     connectTimeoutMS: 30000,
     /**
-     * By default, Mongoose 5.x calls the MongoDB driver's ensureIndex() function.
-     *  The MongoDB driver deprecated this function in favor of createIndex().
-     *  Set the useCreateIndex global option to opt in to making Mongoose use createIndex() instead.
-     */
+       * By default, Mongoose 5.x calls the MongoDB driver's ensureIndex() function.
+       *  The MongoDB driver deprecated this function in favor of createIndex().
+       *  Set the useCreateIndex global option to opt in to
+       *    making Mongoose use createIndex() instead.
+       */
     useCreateIndex: true,
     /**
-     * The MongoDB Node.js driver rewrote the tool it uses to parse MongoDB connection strings.
-     *  Because this is such a big change, they put the new connection string parser behind a flag.
-     *  To turn on this option, pass the useNewUrlParser option to mongoose.connect()
-     *    or mongoose.createConnection().
-     */
+       * The MongoDB Node.js driver rewrote the tool it uses to parse MongoDB connection strings.
+       *  Because this is such a big change, they put the new connection string parser behind a flag.
+       *  To turn on this option, pass the useNewUrlParser option to mongoose.connect()
+       *    or mongoose.createConnection().
+       */
     useNewUrlParser: true,
     ...opt,
   });
+  conn.on('connected', () => {
+    resolve(conn);
+  });
+  conn.on('error', (err) => {
+    reject(err);
+  });
   return conn;
-};
+});
 
 export default connectMongo;

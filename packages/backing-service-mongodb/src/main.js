@@ -3,22 +3,13 @@
  * File Created: Thursday, 28th February 2019 5:01:33 pm
  * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
+import connect from './connect';
 
-import connectRedis from '@chengchengw/backing-service-redis';
+export const ServiceKey = 'resource/mongoose/mongo-connection';
 
-const configs = (() => {
-  const {
-    SERVICE_REDIS_HOST: host,
-    SERVICE_REDIS_PORT: port,
-    SERVICE_REDIS_PASSWORD: password,
-  } = process.env;
-  return {
-    host,
-    port,
-    password,
-  };
-})();
+const connector = {
+  connect,
+  key: ServiceKey,
+};
 
-const ioredis = connectRedis()(configs);
-
-export default ioredis;
+export default connector;
