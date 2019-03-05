@@ -21,6 +21,6 @@ const connectingResource = ({ connectors, logger = console }) => Promise.all(
         throw err;
       });
   }),
-);
+).then(() => serviceRegister);
 
 export default connectingResource;
