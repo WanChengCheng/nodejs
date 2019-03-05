@@ -4,7 +4,6 @@
  * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
 
-/* eslint import/no-extraneous-dependencies: 0 */
 import createService, { bootstrapServer } from '@chengchengw/node-service/lib/express/server';
 import configCors from '@chengchengw/node-service/lib/express/configCors';
 import createAuthMiddleware, {
