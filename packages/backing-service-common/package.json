@@ -1,5 +1,5 @@
 {
-  "name": "backing-service-common",
+  "name": "@chengchengw/backing-service-common",
   "version": "0.0.5",
   "description": "> TODO: description",
   "author": {
@@ -38,5 +38,7 @@
     "ava": "^1.2.1"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "backing-service-common@0.0.2-alpha.0"
+  "publishConfig": {
+    "access": "public"
+  }
 }
