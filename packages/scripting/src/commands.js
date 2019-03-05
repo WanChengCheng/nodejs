@@ -69,7 +69,7 @@ program
       // ────────────────────────────────────────────────────────
       //
 
-      copyFiles.push(['../configs/git/.gitignore', './.gitignore']);
+      copyFiles.push(['../configs/other/gitignore-default', './.gitignore']);
     }
     await Promise.all(
       copyFiles.map(([from, to]) => promisify(fs.copyFile)(path.join(__dirname, from), to)),
