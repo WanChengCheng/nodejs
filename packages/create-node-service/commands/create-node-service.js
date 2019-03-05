@@ -11,10 +11,15 @@ const path = require('path');
 const writePkg = require('write-pkg');
 const readPkg = require('read-pkg');
 const { promisify } = require('util');
+const randomize = require('randomatic');
 const handlebar = require('handlebars');
+const util = require('util');
 
 const read = promisify(fs.readFile);
 const write = promisify(fs.writeFile);
+const exec = util.promisify(require('child_process').exec);
+
+const logger = console;
 
 const args = yargs
   .command('init', 'init project directoy add configure files', {
@@ -52,12 +57,22 @@ const args = yargs
     },
     env: {
       alias: 'e',
+      default: true,
       describe: 'add .env file to root directory',
+    },
+    version: {
+      alias: 'v',
+      default: '1.0.0',
+      describe: 'version of the api',
+    },
+    port: {
+      alias: 'p',
+      default: 80,
+      describe: 'port of the service (in container)',
     },
     name: {
       alias: 'n',
       describe: 'name of the service',
-      default: 'node-service',
     },
     secret: {
       alias: 's',
@@ -69,21 +84,28 @@ const args = yargs
 const [command] = args._;
 /* eslint global-require: 0 */
 
-const initDocker = async () => {
+const setupDockerEnv = async () => {
   const {
-    docker, mongo, mysql, redis,
+    oss, docker, mongo, mysql, redis, env, version, name, port, secret,
   } = args;
   if (!docker) {
     return null;
   }
+  const pkg = await readPkg({});
+  const serviceName = name || pkg.name;
+  logger.info('Setup docker envirnment, opy docker configs.');
   await fs.ensureDir('./docker');
+  await fs.ensureDir('./configs');
   if (mongo) {
     await fs.ensureDir('./import/mongo');
   }
   if (mysql) {
     await fs.ensureDir('./import/mysql');
   }
-  const compose = await read(path.join(__dirname, '../docker/docker-compose-dev.yml'), 'utf8');
+  const compose = await read(
+    path.join(__dirname, '../boilerplates/docker/docker-compose-dev.yml'),
+    'utf8',
+  );
   const template = handlebar.compile(compose);
   await write(
     './docker/docker-compose-dev.yml',
@@ -95,6 +117,9 @@ const initDocker = async () => {
     'utf8',
   );
   const copyFiles = [];
+  if (env) {
+    copyFiles.push(['../boilerplates/configs/sample.env', './configs/sample.env']);
+  }
   if (mongo) {
     copyFiles.push([
       '../boilerplates/docker/Dockerfile-mongoimport',
@@ -111,10 +136,31 @@ const initDocker = async () => {
     fs.copyFileSync(path.join(__dirname, from), to);
   });
   fs.copyFileSync(path.join(__dirname, '../docker/Dockerfile'), './Dockerfile');
+  if (env) {
+    logger.info('Write env files to project root directory');
+    const envSample = await read(
+      path.join(__dirname, '../boilerplates/configs/sample.env'),
+      'utf8',
+    );
+    const envTemplate = handlebar.compile(envSample);
+    await write(
+      './.env',
+      envTemplate({
+        use_mongo: mongo,
+        use_redis: redis,
+        use_oss: oss,
+        use_mysql: mysql,
+        version,
+        port,
+        name: serviceName,
+        secret: secret || randomize('Aa0', 10),
+      }),
+    );
+  }
   return true;
 };
 
-const initPackageJSON = async () => {
+const addScriptsToPKGJson = async () => {
   const { scripts } = args;
   if (!scripts) {
     return null;
@@ -151,12 +197,20 @@ const initPackageJSON = async () => {
   return true;
 };
 
-const initNodeBTL = async () => {
+const setupLintBuildTestTools = async () => {
+  logger.info('Config with @chengchengw/scripting setup -gbtl ...');
+  await exec('npx @chengchengw/scripting setup -gbtl');
+  const gitExist = await util.promisify(fs.pathExists)('./.git');
+  if (!gitExist) {
+    logger.info('Init git ');
+    await exec('git init');
+  }
 };
 
 const init = async () => {
-  await initDocker();
-  await initPackageJSON();
+  await setupDockerEnv();
+  await setupLintBuildTestTools();
+  await addScriptsToPKGJson();
 };
 
 if (command === 'init') {
