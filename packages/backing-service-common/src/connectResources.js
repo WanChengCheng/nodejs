@@ -11,16 +11,13 @@ const connectingResource = ({ connectors, logger = console }) => Promise.all(
     if (!key || typeof connect !== 'function') {
       throw Error('Invalid connector provided');
     }
-    logger.info(connect);
-    const result = connect();
-    logger.info('tyoeof result:', typeof result);
     return connect()
       .then((resource) => {
-        logger(`${key} connected.`);
+        logger.info(`${key} connected.`);
         serviceRegister.register(key, resource);
       })
       .catch((err) => {
-        logger(`${key} failed to connect, reason:${err.message}`);
+        logger.error(`${key} failed to connect, reason:${err.message}`);
         throw err;
       });
   }),
