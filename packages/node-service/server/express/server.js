@@ -132,16 +132,11 @@ export const EVENT_SERVICES_CONNECTED = 'ServicesConnected';
 export const EVENT_SERVER_READY = 'ServerStarted';
 
 export const bootstrapServer = ({
-  server,
-  logger,
-  port,
-  isTestEnv,
-  noListen,
-  connectResources,
+  server, logger, port, connectResources,
 }) => connectResources().then(() => {
   server.emit(EVENT_SERVICES_CONNECTED);
   logger.info('All services connected.');
-  if (!isTestEnv && !noListen) {
+  if (process.env.NODE_ENV !== 'test' && process.env.NO_LISTEN !== 'yes') {
     server.listen(port, () => {
       logger.info(`Server started on port ${port} in ${server.get('env')} mode`);
       server.emit(EVENT_SERVER_READY);
