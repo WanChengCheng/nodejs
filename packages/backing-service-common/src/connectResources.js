@@ -5,15 +5,21 @@
  */
 import serviceRegister from './resourceRegister';
 
-const connectingResource = connectors => Promise.all(
+const connectingResource = ({ connectors, logger = console }) => Promise.all(
   connectors.map((connector) => {
     const { connect, key } = connector;
     if (!key || typeof connect !== 'function') {
       throw Error('Invalid connector provided');
     }
-    return connect().then((resource) => {
-      serviceRegister.register(key, resource);
-    });
+    return connect()
+      .then((resource) => {
+        logger(`${key} connected.`);
+        serviceRegister.register(key, resource);
+      })
+      .catch((err) => {
+        logger(`${key} failed to connect, reason:${err.message}`);
+        throw err;
+      });
   }),
 );
 
