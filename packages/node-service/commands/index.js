@@ -33,14 +33,14 @@ const args = yargs
       default: '1d',
     },
   })
-  .command('clear-app <name>', 'remove app docker container and image for rebuild', {
+  .command('rebuild-app <name>', 'remove app docker container and image for rebuild', {
     name: {
       alias: 'n',
       describe: 'name of the project to remove',
       demandOption: true,
     },
   })
-  .command('clear-service', 'remove dependent backing service', {
+  .command('rebuild-service', 'remove dependent backing service', {
     name: {
       alias: 'n',
       describe: 'name of the project',
@@ -97,7 +97,7 @@ if (command === 'sign-token') {
   sign().then(token => logger.info(`\nAuthorization: Bearer ${token}`));
 }
 
-if (command === 'clear-app') {
+if (command === 'rebuild-app') {
   const { name } = args;
   require('./shell')(`docker rm -f ${name}; docker rmi ${name}`)
     .catch(() => {})
@@ -106,7 +106,7 @@ if (command === 'clear-app') {
     });
 }
 
-if (command === 'clear-service') {
+if (command === 'rebuild-service') {
   const {
     name, all, mongo, mysql, redis,
   } = args;

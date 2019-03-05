@@ -240,10 +240,18 @@ const addSampleCode = async () => {
   return true;
 };
 
+const addDependencies = async () => {
+  logger.info('Add dependencies ...');
+  await exec('yarn add @chengchengw/node-service');
+  await exec('yarn add @chengchengw/backing-service-common');
+  await exec('yarn add @chengchengw/backing-service-mongodb');
+};
+
 const setup = async () => {
   await setupDockerEnv();
   await setupLintBuildTestTools();
   await addSampleCode();
+  await addDependencies();
 };
 
 if (command === 'setup') {

@@ -5,6 +5,7 @@
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
   "license": "ISC",
+  "bin": "./commands/index.js",
   "directories": {
     "lib": "lib"
   },
