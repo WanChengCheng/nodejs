@@ -10,6 +10,7 @@ import configCors from '@chengchengw/node-service/lib/express/configCors';
 import createAuthMiddleware, {
   multitenancy,
 } from '@chengchengw/node-service/lib/express/authentication';
+import connect from './backing-services';
 
 export const { service, server, logger } = createService({
   corsSetting: configCors({
@@ -41,7 +42,7 @@ bootstrapServer({
   logger,
   isTestEnv: process.env.NODE_ENV === 'test',
   noListen: Boolean(process.env.NO_LISTEN),
-  connectServices: null,
+  connectResources: connect({ logger }),
 });
 
 export default server;

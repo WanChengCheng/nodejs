@@ -1,6 +1,6 @@
 FROM mongo
 
-ADD import/mongo/users.json \
+ADD import/mongo/sample.json \
   # more files bellow
   /tmp/
 

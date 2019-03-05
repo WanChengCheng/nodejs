@@ -230,8 +230,7 @@ const addSampleCode = async () => {
   logger.info('Add sample code .');
   await fs.ensureDir('./server/backing-services');
   const copyFiles = [
-    ['../boilerplates/server/backing-services/mongo.js', './server/backing-services/mongo.js'],
-    ['../boilerplates/server/backing-services/redis.js', './server/backing-services/redis.js'],
+    ['../boilerplates/server/backing-services/index.js', './server/backing-services/index.js'],
     ['../boilerplates/server/index.js', './server/index.js'],
     ['../boilerplates/server.js', './server.js'],
   ];
