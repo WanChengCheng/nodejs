@@ -11,6 +11,9 @@ const connectingResource = ({ connectors, logger = console }) => Promise.all(
     if (!key || typeof connect !== 'function') {
       throw Error('Invalid connector provided');
     }
+    logger.info(connect);
+    const result = connect();
+    logger.info('tyoeof result:', typeof result);
     return connect()
       .then((resource) => {
         logger(`${key} connected.`);
