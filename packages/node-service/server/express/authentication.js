@@ -7,6 +7,7 @@
 /* eslint max-len: 0 */
 import jwt from 'jsonwebtoken';
 import jwtMiddleware from 'express-jwt';
+import { UnauthorizedError } from './errors';
 
 export class SecretMissingError extends Error {}
 export class UnregisteredIssuerError extends Error {}
@@ -106,10 +107,17 @@ export const createAuthMiddleware = ({
 
     unauthorized(err, req, res, next) {
       if (err.name === 'UnauthorizedError') {
-        return res.status(401).send(unauthorizedMessage);
+        return res.status(401).json({
+          status: UnauthorizedError.code,
+          message: unauthorizedMessage,
+          details: err.message,
+        });
       }
       if (err instanceof UnregisteredIssuerError) {
-        return res.status(401).send(err.message);
+        return res.status(401).json({
+          status: UnauthorizedError.code,
+          message: err.message,
+        });
       }
       return next(err);
     },

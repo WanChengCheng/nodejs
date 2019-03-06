@@ -5,7 +5,7 @@
  */
 import connectMongo from './connect';
 
-export const ServiceKey = 'resource/mongoose/mongo-connection';
+export const ResourceKey = 'resource/mongoose/mongo-connection';
 
 export const DefaultMeta = {};
 
@@ -17,9 +17,9 @@ export const DefaultConfig = {
   pass: process.env.SERVICE_MONGO_PASSWORD,
 };
 
-const connector = (...meta) => (...config) => ({
-  key: ServiceKey,
-  connect: () => connectMongo(...meta)(...config),
+const connector = (meta = DefaultMeta) => (...config) => ({
+  key: meta.key || ResourceKey,
+  connect: () => connectMongo(meta)(...config),
 });
 
 export default connector;

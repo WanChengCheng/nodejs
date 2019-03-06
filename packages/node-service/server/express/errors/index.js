@@ -13,6 +13,11 @@ export const InvalidRequestError = {
   message: 'request validation error',
 };
 
+export const UnauthorizedError = {
+  code: 3,
+  message: 'authentication or authorization error, check your token',
+};
+
 export const WIPError = {
   code: 10,
   message: 'endpoint work in progress',

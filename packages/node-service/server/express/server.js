@@ -131,8 +131,8 @@ export const EVENT_SERVICES_CONNECTED = 'ServicesConnected';
 
 export const EVENT_SERVER_READY = 'ServerStarted';
 
-export const bootstrapServer = ({
-  server, logger, port, connectResources,
+export const bootstrapService = ({
+  server, logger = console, port = 80, connectResources,
 }) => connectResources().then(() => {
   server.emit(EVENT_SERVICES_CONNECTED);
   logger.info('All services connected.');

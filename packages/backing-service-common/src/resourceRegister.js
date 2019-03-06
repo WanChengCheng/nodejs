@@ -10,7 +10,7 @@ const resourceRegister = (() => {
     register: (serviceKey, serviceInstance) => {
       storage[serviceKey] = serviceInstance;
     },
-    service: serviceKey => storage[serviceKey],
+    resource: serviceKey => storage[serviceKey],
   };
 })();
 

@@ -246,6 +246,9 @@ const addDependencies = async () => {
   await exec('yarn add @chengchengw/node-service');
   await exec('yarn add @chengchengw/backing-service-common');
   await exec('yarn add @chengchengw/backing-service-mongodb');
+  await exec('yarn add express');
+  await exec('yarn add -D nodemon');
+  await exec('yarn add -D ava');
 };
 
 const setup = async () => {

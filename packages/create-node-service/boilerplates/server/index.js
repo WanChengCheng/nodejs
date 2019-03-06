@@ -5,7 +5,7 @@
  */
 
 /* eslint import/no-extraneous-dependencies: 0 */
-import createService, { bootstrapServer } from '@chengchengw/node-service/lib/express/server';
+import createService, { bootstrapService } from '@chengchengw/node-service/lib/express/server';
 import configCors from '@chengchengw/node-service/lib/express/configCors';
 import createAuthMiddleware, {
   multitenancy,
@@ -37,11 +37,9 @@ const { authorized, unauthorized } = createAuthMiddleware({
 service.use(authorized);
 service.use(unauthorized);
 
-bootstrapServer({
+bootstrapService({
   server,
   logger,
-  isTestEnv: process.env.NODE_ENV === 'test',
-  noListen: Boolean(process.env.NO_LISTEN),
   connectResources: connect({ logger }),
 });
 

@@ -2,13 +2,15 @@
   "name": "@chengchengw/backing-service-oss",
   "version": "0.0.2",
   "description": "> TODO: description",
-  "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
+  "author": {
+    "name": "Wan Cheng Cheng",
+    "email": "chengcheng.st@gmail.com"
+  },
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
   "license": "ISC",
-  "main": "lib/backing-service-oss.js",
+  "main": "lib/main.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"
@@ -21,9 +23,22 @@
     "url": "git+https://github.com/WanChengCheng/nodejs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "npm run build && ./node_modules/.bin/ava --verbose",
+    "test:watch": "./node_modules/.bin/ava --verbose --watch"
   },
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "ava": "^1.3.1"
+  },
+  "dependencies": {
+    "aliyun-oss-upload-stream": "^1.3.0",
+    "aliyun-sdk": "^1.12.0",
+    "mime-types": "^2.1.22",
+    "moment": "^2.24.0"
   }
 }

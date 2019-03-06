@@ -70,7 +70,6 @@ const connectMongo = ({
   conn.on('error', (err) => {
     reject(err);
   });
-  return conn;
 });
 
 export default connectMongo;

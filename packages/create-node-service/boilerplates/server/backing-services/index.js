@@ -7,6 +7,7 @@ import connectMongodb, {
   DefaultConfig as mongoDefaultConfig,
 } from '@chengchengw/backing-service-mongodb';
 import connectResource from '@chengchengw/backing-service-common/lib/connectResources';
+import register from '@chengchengw/backing-service-common/lib/resourceRegister';
 
 const connect = ({ logger } = {}) => () => connectResource({
   connectors: [
@@ -15,6 +16,9 @@ const connect = ({ logger } = {}) => () => connectResource({
     }),
   ],
   logger,
+  register,
 });
+
+export const resourceRegister = register;
 
 export default connect;
