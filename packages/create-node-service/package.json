@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/create-node-service",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "quickly launch a dockerized modern node service.",
   "main": "index.js",
   "bin": "./commands/create-node-service.js",
