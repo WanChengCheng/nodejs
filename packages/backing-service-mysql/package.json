@@ -2,13 +2,15 @@
   "name": "@chengchengw/backing-service-mysql",
   "version": "0.0.2",
   "description": "> TODO: description",
-  "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
+  "author": {
+    "name": "Wan Cheng Cheng",
+    "email": "chengcheng.st@gmail.com"
+  },
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
   "license": "ISC",
-  "main": "lib/backing-service-mysql.js",
+  "main": "lib/main",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"
@@ -21,9 +23,26 @@
     "url": "git+https://github.com/WanChengCheng/nodejs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "prepublish": "npm run build",
+    "test": "npm run build && ./node_modules/.bin/ava --verbose",
+    "build": "./node_modules/.bin/babel src --out-dir lib --copy-files",
+    "test:watch": "./node_modules/.bin/ava --verbose --watch"
   },
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
-  }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@chengchengw/eslint-config": "^1.0.9",
+    "ava": "^1.3.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "dependencies": {
+    "@chengchengw/eslint-config": "^1.0.9",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.43.0"
+  },
+  "_id": "@chengchengw/backing-service-mysql@0.0.2"
 }

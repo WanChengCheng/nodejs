@@ -14,12 +14,7 @@
     "write-pkg": "^3.2.0",
     "yargs": "^13.2.1"
   },
-  "devDependencies": {
-    "@chengchengw/backing-service-common": "^0.0.5",
-    "@chengchengw/backing-service-mongodb": "^0.0.8",
-    "@chengchengw/eslint-config": "^1.0.9",
-    "@chengchengw/node-service": "^0.0.6"
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">=10.0.0"
   },
