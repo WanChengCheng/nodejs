@@ -45,8 +45,8 @@ program
       });
       logger.info('Adding babel build support ...');
       await exec('yarn add -D @babel/cli');
-      await exec('yarn add -D  @babel/core');
-      await exec('yarn add -D  @babel/preset-env');
+      await exec('yarn add -D @babel/core');
+      await exec('yarn add -D @babel/preset-env');
     }
     if (test) {
       if (test === 'ava') {

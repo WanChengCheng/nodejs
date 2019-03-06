@@ -40,5 +40,6 @@
     "aliyun-sdk": "^1.12.0",
     "mime-types": "^2.1.22",
     "moment": "^2.24.0"
-  }
+  },
+  "gitHead": "3c7cf022bb78bb4e5988c201e5f510e311902a74"
 }

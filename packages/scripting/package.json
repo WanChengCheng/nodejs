@@ -17,5 +17,6 @@
   "devDependencies": {
     "@chengchengw/eslint-config": "^1.0.9",
     "ava": "^1.2.1"
-  }
+  },
+  "gitHead": "3c7cf022bb78bb4e5988c201e5f510e311902a74"
 }
