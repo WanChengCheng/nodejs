@@ -138,7 +138,7 @@ export const bootstrapService = ({
   logger.info('All services connected.');
   if (process.env.NODE_ENV !== 'test' && process.env.NO_LISTEN !== 'yes') {
     server.listen(port, () => {
-      logger.info(`Server started on port ${port} in ${server.get('env')} mode`);
+      logger.info(`Server started on port ${port} in ${process.env.NODE_ENV} mode`);
       server.emit(EVENT_SERVER_READY);
     });
   } else {

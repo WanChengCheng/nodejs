@@ -10,3 +10,5 @@ build/
 # msc
 *.log
 *.pid
+.env
+
