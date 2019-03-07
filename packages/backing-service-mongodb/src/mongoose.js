@@ -6,11 +6,11 @@
 
 /* eslint no-underscore-dangle: 0 */
 /* eslint no-param-reassign: 0 */
-export function virtualID() {
+export function virtualId() {
   return this._id.toHexString();
 }
 
-export function removeDangleID(_, ret) {
+export function removeDangleId(_, ret) {
   delete ret._id;
   return ret;
 }
