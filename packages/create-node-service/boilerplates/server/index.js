@@ -13,7 +13,7 @@ import createAuthMiddleware, {
 import connect from './backing-services';
 
 export const { service, server, logger } = createService({
-  corsSetting: configCors({
+  corsSetting: configCors()({
     whitelist: ['*'],
   }),
 });

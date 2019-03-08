@@ -19,7 +19,7 @@ import configCors from './configCors';
 
 export const createService = ({
   isProductionEnv = () => process.env.NODE_ENV === 'production',
-  corsSetting = configCors({
+  corsSetting = configCors()({
     whitelist: ['*'],
   }),
   disableExpressPinoLogger = false,
