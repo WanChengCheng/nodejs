@@ -133,12 +133,12 @@ export const EVENT_SERVER_READY = 'ServerStarted';
 
 export const bootstrapService = ({
   server, logger = console, port = 80, connectResources,
-}) => connectResources().then(() => {
+}) => connectResources(logger).then(() => {
   server.emit(EVENT_SERVICES_CONNECTED);
   logger.info('All services connected.');
   if (process.env.NODE_ENV !== 'test' && process.env.NO_LISTEN !== 'yes') {
     server.listen(port, () => {
-      logger.info(`Server started on port ${port} in ${process.env.NODE_ENV} mode`);
+      logger.info(`Server started on port ${port} in ${server.get('env')} mode`);
       server.emit(EVENT_SERVER_READY);
     });
   } else {
