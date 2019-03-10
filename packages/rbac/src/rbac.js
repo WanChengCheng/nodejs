@@ -14,16 +14,6 @@ const serial = funcs => funcs.reduce(
   Promise.resolve([]),
 );
 
-// const canAny = (roleName, permissions) => new Promise((resolve) => {
-//   hRBAC.canAny(roleName, permissions, (err, yes) => {
-//     if (err) {
-//       resolve(false);
-//     } else {
-//       resolve(yes);
-//     }
-//   });
-// });
-
 const udpateRBACModel = model => new Promise((resolve, reject) => {
   hRBAC = new RBAC(model);
   hRBAC
