@@ -37,8 +37,8 @@ const connectMysql = ({
     operatorsAliases: Sequelize.Op,
   };
   const sequelize = new Sequelize(
-    dbname || (!isProductionEnv && 'default') || '',
-    username || (!isProductionEnv && 'root') || '',
+    dbname || (!isProduction && 'default') || '',
+    username || (!isProduction && 'root') || '',
     password,
     config,
   );
