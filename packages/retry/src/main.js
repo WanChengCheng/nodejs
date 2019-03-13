@@ -4,7 +4,7 @@
  * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
 
-export const retry = ({ times = 1 } = {}) => {
+export const retry = ({ times = 1, onFailure } = {}) => {
   const memory = { tried: 0 };
   return (task) => {
     const singleTry = (resolve, reject) => {
@@ -17,6 +17,9 @@ export const retry = ({ times = 1 } = {}) => {
           resolve(res);
         })
         .catch((error) => {
+          if (onFailure) {
+            onFailure({ error, tried: memory.tried });
+          }
           if (memory.tried >= times) {
             return reject(Object.assign(error, { tried: memory.tried }));
           }
