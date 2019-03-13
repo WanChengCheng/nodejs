@@ -9,6 +9,7 @@ export const retry = ({ times = 1 } = {}) => {
   return (task) => {
     const singleTry = (resolve, reject) => {
       (async () => {
+        memory.tried += 1;
         const result = await task();
         return result;
       })()
@@ -16,7 +17,6 @@ export const retry = ({ times = 1 } = {}) => {
           resolve(res);
         })
         .catch((error) => {
-          memory.tried += 1;
           if (memory.tried >= times) {
             return reject(Object.assign(error, { tried: memory.tried }));
           }
