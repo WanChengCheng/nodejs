@@ -15,8 +15,6 @@ const willFail = (times = 1) => (result) => {
       already.failed += 1;
       reject(Error(`this is the ${already.failed} time to fail as intended`));
     }
-    // setTimeout(() => {
-    // }, 10);
   });
   return again;
 };

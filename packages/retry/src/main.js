@@ -6,7 +6,7 @@
 
 export const retry = ({ times = 1, onFailure } = {}) => {
   const memory = { tried: 0 };
-  return (task) => {
+  return async (task) => {
     const singleTry = (resolve, reject) => {
       (async () => {
         memory.tried += 1;

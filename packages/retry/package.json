@@ -25,8 +25,9 @@
   "scripts": {
     "prepublish": "npm run build:lib",
     "test": "npm run build && ./node_modules/.bin/ava --verbose",
-    "build": "./node_modules/.bin/babel src --out-dir build --copy-files --source-maps",
-    "build:lib": "npm run build && cp -r build lib",
+    "build": "if [ -d build ]; then rm -r build/*; fi; npm run build:source",
+    "build:source": "./node_modules/.bin/babel src --out-dir build --copy-files",
+    "build:lib": "if [ -d build ]; then rm -r build/*; fi; npm run build:source; ./node_modules/.bin/babel src --out-dir lib --copy-files",
     "test:watch": "./node_modules/.bin/ava --verbose --watch"
   },
   "bugs": {
