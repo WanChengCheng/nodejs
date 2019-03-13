@@ -22,7 +22,7 @@ const args = yargs
     },
     secret: {
       alias: 's',
-      default: '',
+      default: 'nopassword',
     },
     payload: {
       alias: 'p',
