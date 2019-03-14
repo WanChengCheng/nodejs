@@ -1,5 +1,5 @@
 {
-  "name": "@chengchengw/parse-query",
+  "name": "@chengchengw/parse-mongo-query",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": {
@@ -8,7 +8,7 @@
   },
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
   "license": "ISC",
-  "main": "lib/parse-query.js",
+  "main": "lib/main.js",
   "directories": {
     "lib": "lib"
   },
