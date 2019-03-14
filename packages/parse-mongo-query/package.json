@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/parse-mongo-query",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "> TODO: description",
   "author": {
     "name": "Wan Cheng Cheng",
@@ -33,12 +33,11 @@
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@chengchengw/eslint-config": "^1.0.9",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "@chengchengw/eslint-config": "^1.0.9",
     "ava": "^1.3.1"
   },
   "readme": "ERROR: No README data found!",
