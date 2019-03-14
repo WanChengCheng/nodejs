@@ -1,0 +1,23 @@
+{
+  "name": "@chengchengw/lang",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
+  "homepage": "https://github.com/WanChengCheng/nodejs#readme",
+  "license": "ISC",
+  "main": "main.js",
+  "directories": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WanChengCheng/nodejs.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/WanChengCheng/nodejs/issues"
+  }
+}
