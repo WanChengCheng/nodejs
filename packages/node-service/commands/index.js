@@ -40,7 +40,7 @@ const args = yargs
       demandOption: true,
     },
   })
-  .command('rebuild-service', 'remove dependent backing service', {
+  .command('rebuild-service <name>', 'remove dependent backing service', {
     name: {
       alias: 'n',
       describe: 'name of the project',

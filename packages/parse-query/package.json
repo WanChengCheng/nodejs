@@ -1,0 +1,48 @@
+{
+  "name": "@chengchengw/parse-query",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": {
+    "name": "Wan Cheng Cheng",
+    "email": "chengcheng.st@gmail.com"
+  },
+  "homepage": "https://github.com/WanChengCheng/nodejs#readme",
+  "license": "ISC",
+  "main": "lib/parse-query.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WanChengCheng/nodejs.git"
+  },
+  "scripts": {
+    "prepublish": "npm run build:lib",
+    "test": "npm run build && ./node_modules/.bin/ava --verbose",
+    "build": "if [ -d build ]; then rm -r build/*; fi; npm run build:source",
+    "build:source": "./node_modules/.bin/babel src --out-dir build --copy-files",
+    "build:lib": "if [ -d build ]; then rm -r build/*; fi; npm run build:source; ./node_modules/.bin/babel src --out-dir lib --copy-files",
+    "test:watch": "./node_modules/.bin/ava --verbose --watch"
+  },
+  "bugs": {
+    "url": "https://github.com/WanChengCheng/nodejs/issues"
+  },
+  "dependencies": {
+    "@chengchengw/eslint-config": "^1.0.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@chengchengw/eslint-config": "^1.0.9",
+    "ava": "^1.3.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@chengchengw/parse-query@1.0.0"
+}

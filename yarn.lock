@@ -39,7 +39,7 @@
 
 "@babel/cli@^7.2.3":
   version "7.2.3"
-  resolved "http://registry.npm.taobao.org/@babel/cli/download/@babel/cli-7.2.3.tgz#1b262e42a3e959d28ab3d205ba2718e1923cfee6"
+  resolved "http://registry.npm.taobao.org/@babel/cli/download/@babel/cli-7.2.3.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcli%2Fdownload%2F%40babel%2Fcli-7.2.3.tgz#1b262e42a3e959d28ab3d205ba2718e1923cfee6"
   integrity sha1-GyYuQqPpWdKKs9IFuicY4ZI8/uY=
   dependencies:
     commander "^2.8.1"
@@ -2513,7 +2513,7 @@ cookie@0.3.1:
   resolved "http://registry.npm.taobao.org/cookie/download/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
   integrity sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s=
 
-cookiejar@^2.1.0:
+cookiejar@^2.1.2:
   version "2.1.2"
   resolved "http://registry.npm.taobao.org/cookiejar/download/cookiejar-2.1.2.tgz#dd8a235530752f988f9a0844f3fc589e3111125c"
   integrity sha1-3YojVTB1L5iPmghE8/xYnjERElw=
@@ -2877,10 +2877,10 @@ dot-prop@^4.1.0, dot-prop@^4.2.0:
   dependencies:
     is-obj "^1.0.0"
 
-dotenv@^6.2.0:
-  version "6.2.0"
-  resolved "http://registry.npm.taobao.org/dotenv/download/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
-  integrity sha1-lBwEEFNdlCyL7PKNPzV9vZ1HYGQ=
+dotenv@^7.0.0:
+  version "7.0.0"
+  resolved "http://registry.npm.taobao.org/dotenv/download/dotenv-7.0.0.tgz#a2be3cd52736673206e8a85fb5210eea29628e7c"
+  integrity sha1-or481Sc2ZzIG6KhftSEO6ilijnw=
 
 dottie@^2.0.0:
   version "2.0.1"
@@ -3387,7 +3387,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@^3.0.0, extend@~3.0.2:
+extend@~3.0.2:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/extend/download/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha1-+LETa0Bx+9jrFAr/hYsQGewpFfo=
@@ -3583,7 +3583,7 @@ forever-agent@~0.6.1:
   resolved "http://registry.npm.taobao.org/forever-agent/download/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
   integrity sha1-+8cfDEGt6zf5bFd60e1C2P2sypE=
 
-form-data@^2.3.1, form-data@~2.3.2:
+form-data@^2.3.3, form-data@~2.3.2:
   version "2.3.3"
   resolved "http://registry.npm.taobao.org/form-data/download/form-data-2.3.3.tgz#dcce52c05f644f298c6a7ab936bd724ceffbf3a6"
   integrity sha1-3M5SwF9kTymManq5Nr1yTO/786Y=
@@ -5384,10 +5384,10 @@ mime@1.4.1:
   resolved "http://registry.npm.taobao.org/mime/download/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
   integrity sha1-Eh+evEnjdm8xGnbh+hyAA8SwOqY=
 
-mime@^1.4.1:
-  version "1.6.0"
-  resolved "http://registry.npm.taobao.org/mime/download/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
-  integrity sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=
+mime@^2.4.0:
+  version "2.4.0"
+  resolved "http://registry.npm.taobao.org/mime/download/mime-2.4.0.tgz#e051fd881358585f3279df333fe694da0bcffdd6"
+  integrity sha1-4FH9iBNYWF8yed8zP+aU2gvP/dY=
 
 mimic-fn@^1.0.0:
   version "1.2.0"
@@ -6594,7 +6594,7 @@ qs@6.5.2, qs@~6.5.2:
   resolved "http://registry.npm.taobao.org/qs/download/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha1-yzroBuh0BERYTvFUzo7pjUA/PjY=
 
-qs@^6.5.1:
+qs@^6.6.0:
   version "6.6.0"
   resolved "http://registry.npm.taobao.org/qs/download/qs-6.6.0.tgz#a99c0f69a8d26bf7ef012f871cdabb0aee4424c2"
   integrity sha1-qZwPaajSa/fvAS+HHNq7Cu5EJMI=
@@ -6753,7 +6753,7 @@ read@1, read@~1.0.1:
   dependencies:
     mute-stream "~0.0.4"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
+"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.6"
   resolved "http://registry.npm.taobao.org/readable-stream/download/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha1-sRwn2IuP8fvgcGQ8+UsMea4bCq8=
@@ -7637,21 +7637,20 @@ strong-log-transformer@^2.0.0:
     minimist "^1.2.0"
     through "^2.3.4"
 
-superagent@^3.8.3:
-  version "3.8.3"
-  resolved "http://registry.npm.taobao.org/superagent/download/superagent-3.8.3.tgz#460ea0dbdb7d5b11bc4f78deba565f86a178e128"
-  integrity sha1-Rg6g29t9WxG8T3jeulZfhqF44Sg=
+superagent@^4.1.0:
+  version "4.1.0"
+  resolved "http://registry.npm.taobao.org/superagent/download/superagent-4.1.0.tgz#c465c2de41df2b8d05c165cbe403e280790cdfd5"
+  integrity sha1-xGXC3kHfK40FwWXL5APigHkM39U=
   dependencies:
     component-emitter "^1.2.0"
-    cookiejar "^2.1.0"
-    debug "^3.1.0"
-    extend "^3.0.0"
-    form-data "^2.3.1"
+    cookiejar "^2.1.2"
+    debug "^4.1.0"
+    form-data "^2.3.3"
     formidable "^1.2.0"
     methods "^1.1.1"
-    mime "^1.4.1"
-    qs "^6.5.1"
-    readable-stream "^2.3.5"
+    mime "^2.4.0"
+    qs "^6.6.0"
+    readable-stream "^3.0.6"
 
 supertap@^1.0.0:
   version "1.0.0"
@@ -7664,13 +7663,13 @@ supertap@^1.0.0:
     serialize-error "^2.1.0"
     strip-ansi "^4.0.0"
 
-supertest@^3.4.2:
-  version "3.4.2"
-  resolved "http://registry.npm.taobao.org/supertest/download/supertest-3.4.2.tgz#bad7de2e43d60d27c8caeb8ab34a67c8a5f71aad"
-  integrity sha1-utfeLkPWDSfIyuuKs0pnyKX3Gq0=
+supertest@^4.0.0:
+  version "4.0.0"
+  resolved "http://registry.npm.taobao.org/supertest/download/supertest-4.0.0.tgz#1fda3a5faf331b20ad5fb836ddf789e80b365db6"
+  integrity sha1-H9o6X68zGyCtX7g23feJ6As2XbY=
   dependencies:
     methods "^1.1.2"
-    superagent "^3.8.3"
+    superagent "^4.1.0"
 
 supports-color@^5.3.0:
   version "5.5.0"
