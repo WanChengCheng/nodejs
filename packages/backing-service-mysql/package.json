@@ -42,7 +42,7 @@
   "dependencies": {
     "@chengchengw/eslint-config": "^1.0.9",
     "mysql2": "^1.6.5",
-    "sequelize": "^4.43.0"
+    "sequelize": "^5.1.0"
   },
   "_id": "@chengchengw/backing-service-mysql@0.0.2"
 }
