@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/scripting",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "node scripting.",
   "bin": "./src/commands.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
