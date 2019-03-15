@@ -24,6 +24,7 @@ export const createService = ({
   }),
   disableExpressPinoLogger = false,
   logger = createPinoLogger(),
+  pinoSerializers,
 } = {}) => {
   const isProduction = isProductionEnv();
   const server = express();
@@ -94,6 +95,7 @@ export const createService = ({
         logger,
         // express-pino-logger is just pino-http,
         genReqId: () => uuid(),
+        ...(pinoSerializers || {}),
       }),
     );
   } else {
