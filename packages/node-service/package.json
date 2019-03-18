@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/node-service",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Node service utils with express",
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
