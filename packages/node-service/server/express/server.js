@@ -95,7 +95,11 @@ export const createService = ({
         logger,
         // express-pino-logger is just pino-http,
         genReqId: () => uuid(),
-        ...(pinoSerializers || {}),
+        serializers: {
+          req: pino.stdSerializers.req,
+          res: pino.stdSerializers.res,
+          ...(pinoSerializers || {}),
+        },
       }),
     );
   } else {
