@@ -133,6 +133,15 @@ export const createService = ({
   };
 };
 
+/**
+ * * wait for service events
+ * @param {*} app, express app
+ * @param {*} event, server events, EVENT_*
+ */
+export const waitFor = (app, event) => new Promise((resolve) => {
+  app.on(event, resolve);
+});
+
 export const EVENT_SERVICES_CONNECTED = 'ServicesConnected';
 
 export const EVENT_SERVER_READY = 'ServerStarted';
