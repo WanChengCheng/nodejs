@@ -49,10 +49,10 @@ export const dataTransformedAxios = Axios.create({
 });
 
 export const jwtAuthenticatedAxios = (token) => {
-  Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   const ax = Axios.create({
     transformRequest: [requestDataSerializer],
   });
+  ax.defaults.headers.common.Authorization = `Bearer ${token}`;
   return ax;
 };
 
