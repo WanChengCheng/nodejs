@@ -17,4 +17,9 @@ export const DefaultConfig = {
   instance: process.env.SERVICE_OTS_INSTANCE,
 };
 
-export default connectOTS;
+const connector = (meta = DefaultMeta) => (...config) => ({
+  key: meta.key || ResourceKey,
+  connect: () => connectOTS(meta)(...config),
+});
+
+export default connector;
