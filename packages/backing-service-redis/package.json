@@ -8,7 +8,7 @@
   },
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
   "license": "ISC",
-  "main": "lib/backing-service-redis.js",
+  "main": "lib/main",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -24,15 +24,15 @@
     "url": "git+https://github.com/WanChengCheng/nodejs.git"
   },
   "scripts": {
+    "prepublish": "npm run build",
     "test": "npm run build && ./node_modules/.bin/ava --verbose",
-    "build": "./node_modules/.bin/babel src --out-dir build --copy-files --source-maps",
+    "build": "./node_modules/.bin/babel src --out-dir lib --copy-files",
     "test:watch": "./node_modules/.bin/ava --verbose --watch"
   },
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
   "dependencies": {
-    "@chengchengw/eslint-config": "^1.0.9",
     "ioredis": "^4.6.2"
   },
   "devDependencies": {

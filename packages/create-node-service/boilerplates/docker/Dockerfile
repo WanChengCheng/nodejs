@@ -1,6 +1,6 @@
 # prefer the defacto image with version LTS - Latest LTS version
 # ? to update this imagebase, see:https://github.com/nodejs/Release
-FROM node:10.15.1
+FROM node:10
 
 # dumb-init enables you to simply prefix your command with dumb-init. 
 # It acts as PID 1 and immediately spawns your command as a child process, taking care to properly handle and forward signals as they are received.
