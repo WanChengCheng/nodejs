@@ -11,7 +11,7 @@ const connectMongo = ({
   devMongoHost = 'mongo',
   devMongoPort = '27017',
 } = {}) => ({
-  nodes = [], replset, user, pass, dbname: customDbname,
+  nodes = [], replset, user, pass, dbname: customDbname, ...options
 }) => new Promise((resolve, reject) => {
   const isProduction = isProductionEnv();
   const dbname = (() => {
@@ -35,7 +35,7 @@ const connectMongo = ({
   if (!servers.length && !isProduction) {
     servers.push(`${devMongoHost}:${devMongoPort}`);
   }
-  const opt = {};
+  const opt = { ...options };
   if (replset) {
     opt.replicaSet = replset;
   }
