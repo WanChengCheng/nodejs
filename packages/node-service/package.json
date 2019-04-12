@@ -1,13 +1,14 @@
 {
   "name": "@chengchengw/node-service",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "description": "Node service utils with express",
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
   "license": "ISC",
   "bin": "./commands/index.js",
   "files": [
-    "lib", "commands"
+    "lib",
+    "commands"
   ],
   "publishConfig": {
     "access": "public"
