@@ -10,9 +10,9 @@ export const ResourceKey = 'resource/mns/rest-instance';
 export const DefaultMeta = {};
 
 export const DefaultConfig = {
-  accessKeyId: process.env.SERVICE_OTS_ACCESS_KEY_ID,
-  accessKeySecret: process.env.SERVICE_OTS_ACCESS_KEY_SECRET,
-  endpoint: process.env.SERVICE_OTS_ENDPOINT,
+  accessKeyId: process.env.SERVICE_MNS_ACCESS_KEY_ID,
+  accessKeySecret: process.env.SERVICE_MNS_ACCESS_KEY_SECRET,
+  endpoint: process.env.SERVICE_MNS_ENDPOINT,
 };
 
 const connector = (meta = DefaultMeta) => (...config) => ({
