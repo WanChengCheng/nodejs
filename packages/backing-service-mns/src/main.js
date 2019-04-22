@@ -14,6 +14,7 @@ export const DefaultConfig = {
   accessKeySecret: process.env.SERVICE_MNS_ACCESS_KEY_SECRET,
   endpoint: process.env.SERVICE_MNS_ENDPOINT,
 };
+// http://1031445395705680.mns.cn-hangzhou-internal.aliyuncs.com/
 
 const connector = (meta = DefaultMeta) => (...config) => ({
   key: meta.key || ResourceKey,
