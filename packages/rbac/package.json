@@ -46,5 +46,6 @@
   "readme": "ERROR: No README data found!",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "15cbd792a67d46074ec5e77f2fd55bb301ede28a"
 }
