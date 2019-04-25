@@ -4,7 +4,7 @@
  * Author: ChegCheng Wan (chengcheng.st@gmail.com)
  */
 
-import MNS from 'aliyun-mns';
+import MNS from '../vendor/aliyun-mns';
 
 const connectMNS = () => ({
   accessKeyId, accessKeySecret, endpoint, apiVersion = '2015-06-06',

@@ -1,5 +1,5 @@
 import test from 'ava';
-import Joi from 'joi';
+import Joi from '@hapi/joi';
 import validateRequest from '../validateRequest';
 import { RequestValidationError } from '../../errors/codes';
 

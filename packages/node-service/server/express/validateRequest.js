@@ -3,7 +3,7 @@
  * File Created: Thursday, 29th November 2018 5:17:06 pm
  * Author: ChegCheng Wan (chengcheng.st@gmail.com)
  */
-import Joi from 'joi';
+import Joi from '@hapi/joi';
 import errorTrigger from './errorTrigger';
 import { InvalidRequestError } from './errors';
 
