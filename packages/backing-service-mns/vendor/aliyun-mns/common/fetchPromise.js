@@ -15,7 +15,7 @@ module.exports = (url, options, handle, callback = () => {}) => new Promise((res
       return reject(err);
     }
     const { status } = res;
-    parser(buf.toString(), (error, json) => {
+    parser(buf.toString() || '{}', { explicitArray: false }, (error, json) => {
       if (error) {
         error.status = status;
         callback(error);
