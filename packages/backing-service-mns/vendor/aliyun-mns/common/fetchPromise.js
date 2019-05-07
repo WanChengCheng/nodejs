@@ -15,21 +15,21 @@ module.exports = (url, options, handle, callback = () => {}) => new Promise((res
       return reject(err);
     }
     const { status } = res;
-    parser(buf.toString() || '{}', { explicitArray: false }, (error, json) => {
+    parser(buf.toString(), { explicitArray: false }, (error, json) => {
       if (error) {
         error.status = status;
         callback(error);
         return reject(error);
       }
-      if (json.Errors) {
+      if (json && json.Errors) {
         json.Error = json.Errors.Error;
       }
-      if (json.Error) {
+      if (json && json.Error) {
         json.Error.status = status;
         callback(json.Error);
         return reject(json.Error);
       }
-      const data = handle(json, res);
+      const data = handle(json || {}, res);
       callback(null, data);
       resolve(data);
     });
