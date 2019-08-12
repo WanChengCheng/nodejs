@@ -4,9 +4,9 @@
  * Author: ChegCheng Wan <chengcheng.st@gmail.com>
  */
 
-import { serial } from '@chengchengw/lang';
-import { RBAC } from 'rbac';
-import NamespaceRegistry from './NamespaceRegistry';
+import { serial } from "@chengchengw/lang";
+import { RBAC } from "rbac";
+import NamespaceRegistry from "./NamespaceRegistry";
 
 const containsAnyTruthyValue = (final, val) => final || val;
 
@@ -25,7 +25,11 @@ const containsAnyTruthyValue = (final, val) => final || val;
 //     superadmin: ['admin'],
 //   },
 // });
-export const generateRBACModel = async ({ roles = [], permissions = [], registry }) => {
+export const generateRBACModel = async ({
+  roles = [],
+  permissions = [],
+  registry
+}) => {
   // expected role schema: { name: String , permissions: [permission,], inherit: { name: String }}
   //    inherit is optional, exist if role hierachically textends another role
   // expected permission schema: { name: String, namespace: String }
@@ -36,7 +40,7 @@ export const generateRBACModel = async ({ roles = [], permissions = [], registry
     .map(item => item.name)
     .filter(Boolean)
     .reduce((res, val) => {
-      const [action, resource] = val.split('_');
+      const [action, resource] = val.split("_");
       if (!action || !resource) {
         return res;
       }
@@ -66,12 +70,12 @@ export const generateRBACModel = async ({ roles = [], permissions = [], registry
   const rbac = await new RBAC({
     roles: roleModel,
     permissions: permissionModel,
-    grants,
+    grants
   });
   await rbac.init();
   return {
     rbac,
-    registry: namespaces,
+    registry: namespaces
   };
 };
 
@@ -81,68 +85,72 @@ export const generateRBACModel = async ({ roles = [], permissions = [], registry
  * @param {String} mode
  * @returns {Object} condition object { judge: {} }
  */
-export const condition = (clauses, mode = 'any') => {
+export const condition = (clauses, mode = "any") => {
   if (clauses.judge) {
     return clauses;
   }
   // any one fo the clause truthy => true
-  if (Array.isArray(clauses) && mode === 'any') {
+  if (Array.isArray(clauses) && mode === "any") {
     return {
       // eslint-disable-next-line max-len
-      judge: context => Promise.all(clauses.map(clause => clause.judge(context))).then(results => results.reduce(containsAnyTruthyValue, false)),
+      judge: context =>
+        Promise.all(clauses.map(clause => clause.judge(context))).then(
+          results => results.reduce(containsAnyTruthyValue, false)
+        )
     };
   }
   throw Error(`Unrecognized clauses, mode:${mode}`);
 };
 
 //
-export const roleClause = ({
-  name, ns, namespaceSelector, check,
-}) => ({
-  judge: async (context) => {
+export const roleClause = ({ name, ns, namespaceSelector, check }) => ({
+  judge: async context => {
     const {
       user: { roles: rolestr },
-      namespace,
+      namespace
     } = context;
-    const roles = rolestr.split(',').map(item => item.trim());
+    const roles = rolestr.split(",").map(item => item.trim());
     if (roles.some(item => item === name)) {
       if (check) {
         return check(context);
       }
-      if (ns === '*') {
+      if (ns === "*") {
         return true;
       }
       const rolens = namespaceSelector ? namespaceSelector(context) : ns;
       return rolens === namespace;
     }
     return false;
-  },
+  }
 });
 
-export const permissionClause = ({
-  name, ns, check, namespaceSelector,
-}) => ({
-  judge: async (context) => {
+export const permissionClause = ({ name, ns, check, namespaceSelector }) => ({
+  judge: async context => {
     const {
       user: { roles: rolestr },
       namespace,
       rbac,
-      registry,
+      registry
     } = context;
-    const roles = rolestr.split(',').map(item => item.trim());
-    const can = await serial(roles.map(r => () => rbac.canAny(r, [name.split('_')])));
+    const roles = rolestr.split(",").map(item => item.trim());
+    const can = await serial(
+      roles.map(r => () => rbac.canAny(r, [name.split("_")]))
+    );
     if (can.reduce(containsAnyTruthyValue, false)) {
       if (check) {
         return check(context);
       }
       const grantscope = registry.lookup(name);
-      if (grantscope === 'global') {
+      if (grantscope === "global") {
         return true;
       }
-      return namespace === String(namespaceSelector ? namespaceSelector(context) : ns);
+      return (
+        namespace ===
+        String(namespaceSelector ? namespaceSelector(context) : ns)
+      );
     }
     return false;
-  },
+  }
 });
 
 /**
@@ -160,53 +168,55 @@ export const permissionTo = (action, resource) => {
   // customized check
   //    permissionTo('grant', 'user').check((req) => { return Promise.resolve(true); });
   if (!action || !resource) {
-    throw Error('params is null');
+    throw Error("params is null");
   }
   const hrbacName = `${action}_${resource}`;
   return {
-    globally: () => condition(
-      permissionClause({
-        name: hrbacName,
-        action,
-        resource,
-        ns: 'global',
-      }),
-    ),
-    check: fn => condition(
-      permissionClause({
-        name: hrbacName,
-        action,
-        resource,
-        check: fn,
-      }),
-    ),
-    under: (fn) => {
-      if (typeof fn === 'function') {
+    globally: () =>
+      condition(
+        permissionClause({
+          name: hrbacName,
+          action,
+          resource,
+          ns: "global"
+        })
+      ),
+    check: fn =>
+      condition(
+        permissionClause({
+          name: hrbacName,
+          action,
+          resource,
+          check: fn
+        })
+      ),
+    under: fn => {
+      if (typeof fn === "function") {
         return condition(
           permissionClause({
             name: hrbacName,
             action,
             resource,
-            namespaceSelector: fn,
-          }),
+            namespaceSelector: fn
+          })
         );
       }
-      if (typeof fn === 'string') {
+      if (typeof fn === "string") {
         return condition(
           permissionClause({
             name: hrbacName,
             action,
             resource,
-            ns: fn,
-          }),
+            ns: fn
+          })
         );
       }
       throw Error(`Unknown namespace, ${fn}`);
-    },
+    }
   };
 };
 
-export const role = (rolename) => {
+export const role = rolename => {
   // claim role:
   //    role('user').ignoreScope();
   //    role('author').under('heaton');
@@ -215,30 +225,33 @@ export const role = (rolename) => {
   // 「roles are defined globally, but granted locally」
   const hrbacName = rolename;
   return {
-    under: fn => condition(
-      roleClause({
-        name: hrbacName,
-        ...(typeof fn === 'function'
-          ? {
-            namespaceSelector: fn,
-          }
-          : {
-            ns: fn,
-          }),
-      }),
-    ),
-    ignoreScope: () => condition(
-      roleClause({
-        name: hrbacName,
-        ns: '*',
-      }),
-    ),
-    check: fn => condition(
-      roleClause({
-        name: hrbacName,
-        check: fn,
-      }),
-    ),
+    under: fn =>
+      condition(
+        roleClause({
+          name: hrbacName,
+          ...(typeof fn === "function"
+            ? {
+                namespaceSelector: fn
+              }
+            : {
+                ns: fn
+              })
+        })
+      ),
+    ignoreScope: () =>
+      condition(
+        roleClause({
+          name: hrbacName,
+          ns: "*"
+        })
+      ),
+    check: fn =>
+      condition(
+        roleClause({
+          name: hrbacName,
+          check: fn
+        })
+      )
   };
 };
 
@@ -270,5 +283,5 @@ export const need = cond => async (req, res, next) => {
   if (authorized) {
     return next();
   }
-  return res.status(401).send('unauthorized');
+  return res.status(401).send("unauthorized");
 };
