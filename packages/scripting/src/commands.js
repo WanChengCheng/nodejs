@@ -21,14 +21,13 @@ program
   .command('setup')
   .description('run setup commands for project')
   .option('-b, --build', 'add babel support')
-  .option('-t, --test [lib]', 'add test support', 'ava')
   .option('-l, --lint', 'add eslint support')
   .option('-e, --editorconfig', 'add editor config')
   .option('-g, --git', 'add git related files')
   .option('-s, --sample', 'add sample files')
   .action(async (options) => {
     const {
-      build, test, lint, git, editorconfig, sample,
+      build, lint, git, editorconfig, sample,
     } = options;
     const copyFiles = [];
     const scripts = {};
@@ -47,17 +46,6 @@ program
       await exec('yarn add -D @babel/cli');
       await exec('yarn add -D @babel/core');
       await exec('yarn add -D @babel/preset-env');
-    }
-    if (test) {
-      if (test === 'ava') {
-        logger.info('Adding ava test support...');
-        copyFiles.push(['../configs/ava/ava.config.js', './ava.config.js']);
-        await exec('yarn add -D ava');
-        Object.assign(scripts, {
-          test: 'npm run build && ./node_modules/.bin/ava --verbose',
-          'test:watch': './node_modules/.bin/ava --verbose --watch',
-        });
-      }
     }
     if (editorconfig) {
       copyFiles.push(['../configs/editor-config/.editorconfig', './.editorconfig']);
@@ -95,8 +83,8 @@ program
       //
 
       await fs.ensureDir('./src');
-      await fs.copyFile(path.join(__dirname, '../configs/ava/main.js'), './src/main.js');
-      await fs.copyFile(path.join(__dirname, '../configs/ava/main.test.js'), './src/main.test.js');
+      // await fs.copyFile(path.join(__dirname, '../configs/ava/main.js'), './src/main.js');
+      // await fs.copyFile(path.join(__dirname, '../configs/ava/main.test.js'), './src/main.test.js');
     }
     if (Object.values(scripts).length) {
       logger.info('update package.json ...');
