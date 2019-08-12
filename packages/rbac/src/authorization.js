@@ -187,7 +187,7 @@ export const permissionTo = (action, resource) => {
             name: hrbacName,
             action,
             resource,
-            select: fn,
+            namespaceSelector: fn,
           }),
         );
       }
@@ -220,7 +220,7 @@ export const role = (rolename) => {
         name: hrbacName,
         ...(typeof fn === 'function'
           ? {
-            select: fn,
+            namespaceSelector: fn,
           }
           : {
             ns: fn,
