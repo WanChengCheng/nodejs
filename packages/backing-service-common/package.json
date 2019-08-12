@@ -21,25 +21,23 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "test": "npm run build && ./node_modules/.bin/ava --verbose",
-    "build": "./node_modules/.bin/babel src --out-dir lib --copy-files --source-maps",
-    "test:watch": "./node_modules/.bin/ava --verbose --watch"
+    "build": "./node_modules/.bin/babel src --out-dir lib --copy-files --source-maps"
   },
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
-  "dependencies": {
-    "@chengchengw/eslint-config": "^1.0.11"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
-    "ava": "^1.2.1"
+    "@chengchengw/eslint-config": "^1.0.11",
+    "eslint": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2"
   },
   "readme": "ERROR: No README data found!",
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "3c7cf022bb78bb4e5988c201e5f510e311902a74"
+  "gitHead": "576a9bcd70ef20b9adf306510aff4ed6eb2f4cab"
 }

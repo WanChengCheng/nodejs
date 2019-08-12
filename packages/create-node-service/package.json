@@ -7,7 +7,7 @@
   "author": "chengchengw <chengcheng.st@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^8.0.0",
     "handlebars": "^4.1.0",
     "randomatic": "^3.1.1",
     "read-pkg": "^5.0.0",

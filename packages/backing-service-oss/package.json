@@ -24,8 +24,6 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "test": "npm run build && ./node_modules/.bin/ava --verbose",
-    "test:watch": "./node_modules/.bin/ava --verbose --watch",
     "build": "./node_modules/.bin/babel src --out-dir lib --copy-files --source-maps"
   },
   "bugs": {
@@ -34,17 +32,16 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "ava": "^1.3.1"
+    "@chengchengw/eslint-config": "^1.0.11",
+    "@babel/preset-env": "^7.3.4"
   },
   "dependencies": {
-    "@chengchengw/eslint-config": "^1.0.11",
     "aliyun-oss-upload-stream": "^1.3.0",
     "aliyun-sdk": "^1.12.0",
     "mime-types": "^2.1.22",
     "moment": "^2.24.0"
   },
-  "gitHead": "3c7cf022bb78bb4e5988c201e5f510e311902a74",
+  "gitHead": "576a9bcd70ef20b9adf306510aff4ed6eb2f4cab",
   "readme": "ERROR: No README data found!",
   "_id": "@chengchengw/backing-service-oss@0.0.4"
 }

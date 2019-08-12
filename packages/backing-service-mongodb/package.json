@@ -34,12 +34,12 @@
     "@babel/preset-env": "^7.3.4",
     "@chengchengw/eslint-config": "^1.0.11",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.14.1",
+    "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0"
   },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "3c7cf022bb78bb4e5988c201e5f510e311902a74"
+  "gitHead": "576a9bcd70ef20b9adf306510aff4ed6eb2f4cab"
 }

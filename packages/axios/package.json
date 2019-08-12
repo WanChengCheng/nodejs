@@ -24,9 +24,7 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "test": "npm run build && ./node_modules/.bin/ava --verbose",
-    "build": "./node_modules/.bin/babel src --out-dir lib --copy-files --source-maps",
-    "test:watch": "./node_modules/.bin/ava --verbose --watch"
+    "build": "./node_modules/.bin/babel src --out-dir lib --copy-files --source-maps"
   },
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
@@ -43,5 +41,6 @@
     "@chengchengw/eslint-config": "^1.0.9"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "@chengchengw/axios@1.0.0"
+  "_id": "@chengchengw/axios@1.0.0",
+  "gitHead": "576a9bcd70ef20b9adf306510aff4ed6eb2f4cab"
 }

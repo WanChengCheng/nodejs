@@ -24,24 +24,21 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "test": "npm run build && ./node_modules/.bin/ava --verbose",
-    "build": "./node_modules/.bin/babel src --out-dir build --copy-files --source-maps",
-    "test:watch": "./node_modules/.bin/ava --verbose --watch"
+    "build": "./node_modules/.bin/babel src --out-dir build --copy-files --source-maps"
   },
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
   "dependencies": {
-    "@chengchengw/eslint-config": "^1.0.11",
-    "tablestore": "^4.3.1"
+    "tablestore": "^5.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
-    "@chengchengw/eslint-config": "^1.0.9",
-    "ava": "^1.3.1"
+    "@chengchengw/eslint-config": "^1.0.9"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "@chengchengw/backing-service-ots@0.0.1"
+  "_id": "@chengchengw/backing-service-ots@0.0.1",
+  "gitHead": "576a9bcd70ef20b9adf306510aff4ed6eb2f4cab"
 }
