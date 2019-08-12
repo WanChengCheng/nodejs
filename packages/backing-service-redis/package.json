@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/backing-service-redis",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "> TODO: description",
   "author": {
     "name": "Wan Cheng Cheng",
@@ -37,7 +37,7 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
-    "@chengchengw/eslint-config": "^1.0.11"
+    "@chengchengw/eslint-config": "^1.0.12"
   },
   "readme": "ERROR: No README data found!",
   "_id": "@chengchengw/backing-service-redis@0.0.2",

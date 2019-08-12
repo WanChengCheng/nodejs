@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/retry",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "> TODO: description",
   "author": {
     "name": "Wan Cheng Cheng",
@@ -32,12 +32,11 @@
   "bugs": {
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
-    "@chengchengw/eslint-config": "^1.0.9",
+    "@chengchengw/eslint-config": "^1.0.12",
     "jest": "^24.8.0"
   },
   "readme": "ERROR: No README data found!",

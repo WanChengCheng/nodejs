@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/backing-service-ots",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "> TODO: description",
   "author": {
     "name": "Wan Cheng Cheng",
@@ -36,7 +36,7 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
-    "@chengchengw/eslint-config": "^1.0.9"
+    "@chengchengw/eslint-config": "^1.0.12"
   },
   "readme": "ERROR: No README data found!",
   "_id": "@chengchengw/backing-service-ots@0.0.1",

@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/scripting",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "node scripting.",
   "bin": "./src/commands.js",
   "author": "chengchengw <chengcheng.st@gmail.com>",
@@ -15,7 +15,7 @@
     "write-pkg": "^4.0.0"
   },
   "devDependencies": {
-    "@chengchengw/eslint-config": "^1.0.11"
+    "@chengchengw/eslint-config": "^1.0.12"
   },
   "gitHead": "576a9bcd70ef20b9adf306510aff4ed6eb2f4cab"
 }
