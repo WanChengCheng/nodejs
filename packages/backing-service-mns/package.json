@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/backing-service-mns",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "> TODO: description",
   "author": {
     "name": "chengcheng wan",
@@ -38,7 +38,7 @@
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "@chengchengw/eslint-config": "^1.0.10",
+    "@chengchengw/eslint-config": "^1.0.11",
     "ava": "^1.4.1"
   },
   "dependencies": {

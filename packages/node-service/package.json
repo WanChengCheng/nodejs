@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/node-service",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Node service utils with express",
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
@@ -50,7 +50,7 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
-    "@chengchengw/eslint-config": "^1.0.10"
+    "@chengchengw/eslint-config": "^1.0.11"
   },
   "gitHead": "3c7cf022bb78bb4e5988c201e5f510e311902a74"
 }
