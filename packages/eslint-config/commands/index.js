@@ -2,34 +2,40 @@
 /*
  * File: index.js
  * File Created: Friday, 1st March 2019 2:33:10 pm
- * Author: ChegCheng Wan <chengcheng.st@gmail.com>
+ * Author: ChengCheng Wan <chengcheng.st@gmail.com>
  */
 
-const yargs = require("yargs");
-const fs = require("fs-extra");
-const path = require("path");
+const yargs = require('yargs');
+const fs = require('fs-extra');
+const path = require('path');
 
 const args = yargs
-  .command("init", "init project directoy add configure files", {
+  .command('init', 'init project directoy add configure files', {
     react: {
-      alias: "r"
-    }
+      alias: 'r',
+    },
   })
   .help().argv;
 
 const executableDir = p => path.join(__dirname, p);
 
 const [command] = args._;
+const { exec } = require('child_process');
 
-if (command === "init") {
+const logger = console;
+
+if (command === 'init') {
   if (args.react) {
-    fs.copySync(
-      executableDir("../configs/.eslintrc.react.js"),
-      "./.eslintrc.js"
-    );
+    fs.copySync(executableDir('../configs/.eslintrc.react.js'), './.eslintrc.js');
+    exec('npm info "eslint-config-airbnb@latest" peerDependencies', (err, stdout) => {
+      logger.info('Peerdependencies to install:', stdout);
+    });
   } else {
-    fs.copySync(executableDir("../configs/.eslintrc.js"), "./.eslintrc.js");
+    fs.copySync(executableDir('../configs/.eslintrc.js'), './.eslintrc.js');
+    exec('npm info "eslint-config-airbnb-base@latest" peerDependencies', (err, stdout) => {
+      logger.info('Peerdependencies to install:', stdout);
+    });
   }
 
-  fs.copySync(executableDir("../configs/.eslintignore"), "./.eslintignore");
+  fs.copySync(executableDir('../configs/.eslintignore'), './.eslintignore');
 }
