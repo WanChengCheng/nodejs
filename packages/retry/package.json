@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/retry",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "> TODO: description",
   "author": {
     "name": "Wan Cheng Cheng",
@@ -34,7 +34,7 @@
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
   "dependencies": {
-    "@chengchengw/eslint-config": "^1.0.9"
+    "@chengchengw/eslint-config": "^1.0.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

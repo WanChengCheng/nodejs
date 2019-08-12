@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/backing-service-mysql",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "> TODO: description",
   "author": {
     "name": "Wan Cheng Cheng",
@@ -40,7 +40,7 @@
   },
   "readme": "ERROR: No README data found!",
   "dependencies": {
-    "@chengchengw/eslint-config": "^1.0.9",
+    "@chengchengw/eslint-config": "^1.0.10",
     "mysql2": "^1.6.5",
     "sequelize": "^5.1.0"
   },
