@@ -19,6 +19,7 @@
   },
   "scripts": {
     "prepublish": "npm run build",
+    "test": "yarn build && jest",
     "build": "if [ -d lib ]; then rm -r lib/*; fi; npm run build:server",
     "build:server": "./node_modules/.bin/babel server --out-dir lib --copy-files"
   },
@@ -41,6 +42,8 @@
     "jsonwebtoken": "^8.5.0",
     "pino": "^5.11.1",
     "pino-pretty": "^3.0.0",
+    "pino-std-serializers": "^2.4.2",
+    "ramda": "^0.26.1",
     "response-time": "^2.3.2",
     "supertest": "^4.0.0",
     "uuid": "^3.3.2",
@@ -50,7 +53,12 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
-    "@chengchengw/eslint-config": "^1.0.12"
+    "@chengchengw/eslint-config": "^1.0.12",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.15.1",
+    "jest": "^24.8.0"
   },
   "gitHead": "576a9bcd70ef20b9adf306510aff4ed6eb2f4cab"
 }

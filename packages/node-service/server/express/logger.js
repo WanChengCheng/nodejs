@@ -4,6 +4,8 @@
  * Author: ChegCheng Wan (chengcheng.st@gmail.com)
  */
 import pino from 'pino';
+import { wrapRequestSerializer } from 'pino-std-serializers';
+import { reduce, dissocPath } from 'ramda';
 
 export const createPinoLogger = ({
   isProductionEnv = () => process.env.NODE_ENV === 'production',
@@ -15,5 +17,9 @@ export const createPinoLogger = ({
   });
   return logger;
 };
+
+export const cleanupedPinoRequestSerializer = (
+  paths = [['headers', 'authorization'], ['headers', 'cookie']],
+) => wrapRequestSerializer((req) => reduce((json, path) => dissocPath(path, json), req, paths));
 
 export default createPinoLogger;

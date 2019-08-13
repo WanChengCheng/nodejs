@@ -13,7 +13,8 @@ module.exports = {
      */
     ecmaVersion: '2019',
   },
-  extends: 'airbnb',
+  extends: 'airbnb-base',
+  plugins: ['jest'],
   rules: {
     'import/no-extraneous-dependencies': [
       'error',
@@ -21,6 +22,9 @@ module.exports = {
     ],
 
     // enable additional rules
+  },
+  env: {
+    'jest/globals': true,
   },
   globals: {},
 };

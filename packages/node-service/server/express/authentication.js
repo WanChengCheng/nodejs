@@ -9,17 +9,27 @@ import jwt from 'jsonwebtoken';
 import jwtMiddleware from 'express-jwt';
 import { UnauthorizedError } from './errors';
 
-export class SecretMissingError extends Error {}
+export const jwtFromRequest = (req) => {
+  const {
+    headers: { authorization },
+  } = req;
+  const [type, content] = authorization ? authorization.split(' ') : [];
+  if (type === 'Bearer') {
+    return content;
+  }
+  return null;
+};
+
 export class UnregisteredIssuerError extends Error {}
 
 // name should be the name of the service (full name, not issuer),
 //      name should be configured as SERVICE_NAME for each service component
 //      that are recognizable among each other.
-export const tokenSigner = getServiceIdentities => name => (content = {}, options = {}) => getServiceIdentities()
+export const tokenSigner = (getServiceIdentities) => (name) => (content = {}, options = {}) => getServiceIdentities()
   .then((services) => {
-    const service = services.find(item => item.name === name);
+    const service = services.find((item) => item.name === name);
     if (!service) {
-      throw SecretMissingError(`Secret missing for ${name}`);
+      throw Error(`Secret missing for ${name}`);
     }
     return service;
   })
@@ -53,7 +63,7 @@ export const multitenancy = (getServiceIdentities, disableCredential = false) =>
     if (!issuer) {
       return done(new UnregisteredIssuerError('no issuer in token'));
     }
-    const { secret } = services.find(item => item.issuer === issuer) || {};
+    const { secret } = services.find((item) => item.issuer === issuer) || {};
     if (secret) {
       return done(null, secret);
     }
