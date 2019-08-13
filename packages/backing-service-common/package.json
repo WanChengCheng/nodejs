@@ -21,6 +21,7 @@
   },
   "scripts": {
     "prepublish": "npm run build",
+    "test": "yarn build && jest",
     "build": "./node_modules/.bin/babel src --out-dir lib --copy-files --source-maps"
   },
   "bugs": {
@@ -32,7 +33,10 @@
     "@babel/preset-env": "^7.3.4",
     "@chengchengw/eslint-config": "^1.0.12",
     "eslint": "^6.1.0",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.15.1",
+    "jest": "^24.8.0"
   },
   "readme": "ERROR: No README data found!",
   "publishConfig": {

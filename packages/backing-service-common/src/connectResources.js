@@ -5,6 +5,7 @@
  */
 import serviceRegister from './resourceRegister';
 
+// eslint-disable-next-line max-len
 const connectingResource = ({ connectors, logger = console, register = serviceRegister }) => Promise.all(
   connectors.map((connector) => {
     const { connect, key } = connector;
