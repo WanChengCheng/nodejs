@@ -26,7 +26,8 @@
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
   "dependencies": {
-    "mongoose": "^5.4.16"
+    "mongoose": "^5.4.16",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

@@ -3,6 +3,7 @@
  * File Created: Tuesday, 13th August 2019 2:40:49 pm
  * Author: ChengCheng Wan <chengcheng.st@gmail.com>
  */
+import { curry } from 'ramda';
 
 export const register = (() => {
   const memcache = {};
@@ -14,7 +15,7 @@ export const register = (() => {
   };
 })();
 
-const connect = (mongoConnection) => ({
+const connect = curry((mongooseConnection, {
   name, schema, collection, discriminator,
 }) => {
   if (register.get(name)) {
@@ -24,10 +25,10 @@ const connect = (mongoConnection) => ({
   if (discriminator) {
     return register.get(discriminator).discriminator(name, schema);
   }
-  return mongoConnection.model(name, schema, collection);
-};
+  return mongooseConnection.model(name, schema, collection);
+});
 
-const connectMongooseModel = (defination, connector) => async () => {
+export const connectMongooseModel = curry((getConnection, defination) => async () => {
   const { name, discriminator } = defination;
   if (discriminator && !register.get(discriminator)) {
     throw Error(
@@ -37,12 +38,12 @@ const connectMongooseModel = (defination, connector) => async () => {
   if (register.get(name)) {
     return register.get(name);
   }
-  const connection = await useService(connector);
+  const connection = await getConnection();
   register.set(name, connect(connection)(defination));
   return register.get(name);
-};
+});
 
-// eslint-disable-next-line max-len
-export const postponeConnectionTill = (dependentConnector) => (def, connector) => async () => dependentConnector().then(() => connectMongooseModel(def, connector)());
-
-export default connectMongooseModel;
+export const connectMongooseModelInOrder = curry(
+  // eslint-disable-next-line max-len
+  (getConnection, dependentConnector, defination) => async () => dependentConnector().then(() => connectMongooseModel(getConnection, defination)()),
+);
