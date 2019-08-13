@@ -28,7 +28,7 @@ const connect = curry((mongooseConnection, {
   return mongooseConnection.model(name, schema, collection);
 });
 
-export const connectMongooseModel = curry((getConnection, defination) => async () => {
+export const modelConnector = curry((getConnection, defination) => async () => {
   const { name, discriminator } = defination;
   if (discriminator && !register.get(discriminator)) {
     throw Error(
@@ -43,7 +43,7 @@ export const connectMongooseModel = curry((getConnection, defination) => async (
   return register.get(name);
 });
 
-export const connectMongooseModelInOrder = curry(
+export const orderedModelConnector = curry(
   // eslint-disable-next-line max-len
   (getConnection, dependentConnector, defination) => async () => dependentConnector().then(() => connectMongooseModel(getConnection, defination)()),
 );

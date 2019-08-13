@@ -18,7 +18,7 @@ const register = (() => {
 // eslint-disable-next-line max-len
 const connect = curry((sequelize, { name, schema, options = {} }) => sequelize.define(name, schema, options));
 
-export const shardedSequelizeModel = curry(async (getConnection, defination, shard) => {
+export const shardedModelConnector = curry(async (getConnection, defination, shard) => {
   const { name } = defination;
   const key = `${name}/shards/${shard}`;
   if (register.get(key)) {
@@ -29,7 +29,7 @@ export const shardedSequelizeModel = curry(async (getConnection, defination, sha
   return register.get(name);
 });
 
-export const directSequelizeModel = curry((getConnection, defination) => async () => {
+export const directModelConnector = curry((getConnection, defination) => async () => {
   const { name } = defination;
   if (register.get(name)) {
     return register.get(name);
