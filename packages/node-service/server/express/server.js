@@ -25,6 +25,7 @@ export const createService = ({
   disableExpressPinoLogger = false,
   logger = createPinoLogger(),
   pinoSerializers,
+  bodyLimit = '1mb',
 } = {}) => {
   const isProduction = isProductionEnv();
   const server = express();
@@ -49,9 +50,9 @@ export const createService = ({
   // parse application/x-www-form-urlencoded
   // The extended option allows to choose between parsing the URL-encoded data with the querystring library (when false) or the qs library (when true).
   // The "extended" syntax allows for rich objects and arrays to be encoded into the URL-encoded format, allowing for a JSON-like experience with URL-encoded.
-  server.use(bodyParser.urlencoded({ extended: true }));
+  server.use(bodyParser.urlencoded({ extended: true, limit: bodyLimit }));
   // parse application/json
-  server.use(bodyParser.json());
+  server.use(bodyParser.json({ limit: bodyLimit }));
 
   // parse cookie
   // Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
