@@ -62,6 +62,7 @@ const connectMongo = ({
        *    or mongoose.createConnection().
        */
     useNewUrlParser: true,
+    useFindAndModify: false,
     ...opt,
   });
   conn.on('connected', () => {
