@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/backing-service-mongodb",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Utils to work with mongodb as a backing service.",
   "author": "Wan Cheng Cheng <chengcheng.st@gmail.com>",
   "homepage": "https://github.com/WanChengCheng/nodejs#readme",
@@ -33,7 +33,7 @@
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "@chengchengw/eslint-config": "^1.0.12",
+    "@chengchengw/eslint-config": "^1.0.13",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",

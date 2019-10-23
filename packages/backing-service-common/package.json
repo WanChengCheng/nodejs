@@ -1,6 +1,6 @@
 {
   "name": "@chengchengw/backing-service-common",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "> TODO: description",
   "author": {
     "name": "Wan Cheng Cheng",
@@ -31,7 +31,7 @@
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "@chengchengw/eslint-config": "^1.0.12",
+    "@chengchengw/eslint-config": "^1.0.13",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
