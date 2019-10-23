@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "fs-extra": "^8.0.0",
-    "yargs": "^13.2.1"
+    "yargs": "^14.2.0"
   },
   "gitHead": "576a9bcd70ef20b9adf306510aff4ed6eb2f4cab"
 }

@@ -30,12 +30,12 @@
     "url": "https://github.com/WanChengCheng/nodejs/issues"
   },
   "dependencies": {
-    "tablestore": "^5.0.0"
+    "tablestore": "^5.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "@chengchengw/eslint-config": "^1.0.12"
   },
   "readme": "ERROR: No README data found!",
