@@ -16,7 +16,7 @@ import { InvalidRequestError } from './errors';
  * @returns {Object} result - converted value
  * @throws RequestValidationError
  */
-export const validateRequest = (value, schema, tracer) => Joi.validate(value, schema, { convert: true }).catch((err) => {
+export const validateRequest = (value, schema, tracer) => schema.validateAsync(value, { convert: true }).catch((err) => {
   if (tracer) {
     tracer(err);
   }
