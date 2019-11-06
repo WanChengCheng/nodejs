@@ -79,6 +79,7 @@ const connectOSS = ({ logger = console }) => ({
   resolve({
     bundleUpload,
     streamingUpload,
+    oss,
   });
 });
 
