@@ -45,5 +45,5 @@ export const modelConnector = curry((getConnection, defination) => async () => {
 
 export const orderedModelConnector = curry(
   // eslint-disable-next-line max-len
-  (getConnection, dependentConnector, defination) => async () => dependentConnector().then(() => connectMongooseModel(getConnection, defination)()),
+  (getConnection, dependentConnector, defination) => async () => dependentConnector().then(() => modelConnector(getConnection, defination)()),
 );
