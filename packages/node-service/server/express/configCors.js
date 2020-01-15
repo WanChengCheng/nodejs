@@ -26,10 +26,7 @@ const configCors = ({
   return {
     origin: !skipWhiteList
       ? (origin, callback) => {
-        const allow = allowed.has(origin) || allowed.has('*');
-        if (!allow) {
-          console.info(`[DEBUG] origin:${origin} is not allowed in white lists:${whitelist.join(',')}`);
-        }
+        const allow = origin ? allowed.has(origin) || allowed.has('*') : true;
         callback(null, allow);
       }
       : true,
