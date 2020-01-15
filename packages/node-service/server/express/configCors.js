@@ -25,7 +25,13 @@ const configCors = ({
   const allowed = new Set(whitelist);
   return {
     origin: !skipWhiteList
-      ? (origin, callback) => callback(null, allowed.has(origin) || allowed.has('*'))
+      ? (origin, callback) => {
+        const allow = allowed.has(origin) || allowed.has('*');
+        if (!allow) {
+          console.info(`[DEBUG] origin:${origin} is not allowed in white lists:${whitelist.join(',')}`);
+        }
+        callback(null, allow);
+      }
       : true,
     methods: Array.from(new Set([...defaultMethods, ...allowMethods])).join(','),
     exposedHeaders: Array.from(new Set([...defaultExposedHeaders, ...exposeHeaders])),
