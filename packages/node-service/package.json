@@ -39,7 +39,7 @@
     "express-jwt": "^5.3.1",
     "express-pino-logger": "^4.0.0",
     "helmet": "^3.21.2",
-    "jsonwebtoken": "^8.5.0",
+    "jsonwebtoken": "^9.0.0",
     "pino": "^5.13.5",
     "pino-pretty": "^3.2.2",
     "pino-std-serializers": "^2.4.2",
